@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Natureagent extends Model
+class Cconge extends Model
 {
-    protected $primaryKey = 'NATAG_CODE_93';
+    protected $primaryKey = 'CCONG_MAT_95';
     use HasFactory;
 }

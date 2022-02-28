@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class NatureagentSeeder extends Seeder
+class H52MvtPointageBrutSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class NatureagentSeeder extends Seeder
      */
     public function run()
     {
-        factory(Natureagent::class,10)->create();
+        factory(H52_MvtPointageBrut::class,10)->create();
     }
 }

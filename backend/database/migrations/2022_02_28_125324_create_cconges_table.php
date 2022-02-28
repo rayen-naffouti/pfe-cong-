@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('natureagents', function (Blueprint $table) {
-            $table->Increments('NATAG_CODE_93');
-            $table->string('NATAG_LIB_X50',50);
+        Schema::create('cconges', function (Blueprint $table) {
+            $table->Increments('CCONG_MAT_95');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('natureagents');
+        Schema::dropIfExists('cconges');
     }
 };

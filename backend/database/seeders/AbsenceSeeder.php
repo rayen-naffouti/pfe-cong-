@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class NatureagentSeeder extends Seeder
+class AbsenceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class NatureagentSeeder extends Seeder
      */
     public function run()
     {
-        factory(Natureagent::class,10)->create();
+        factory(Absence::class,10)->create();
     }
 }

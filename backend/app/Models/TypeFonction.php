@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Natureagent extends Model
+class TypeFonction extends Model
 {
-    protected $primaryKey = 'NATAG_CODE_93';
+    protected $primaryKey = 'CODE_TYPE';
     use HasFactory;
 }
