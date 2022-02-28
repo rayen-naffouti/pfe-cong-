@@ -14,61 +14,6 @@
             <div class="content-wrap">  <!--START: Content Wrap-->
            
                 
-                <div class="row">
-                    
-                    <!-- <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fs-bars"></i> Live Feeds</h3>
-                                <div class="tools">
-                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>	                                
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                
-                                <div class="col-md-8">
-                                    <div class="chartDashboard" id="chartLive"></div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        
-                                        <div class="col-sm-6 col-md-12 pt-md">
-                                            My Tasks <strong class="pull-right">12/20</strong>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" style="width: 60%;"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-6 col-md-12 pt-md">
-                                            Storage <strong class="pull-right">8/20 GB</strong>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar progress-bar-success" style="width: 40%;"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-6 col-md-12 pt-md">
-                                            Bugs  <strong class="pull-right">90/100</strong>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar progress-bar-danger" style="width: 90%;"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-6 col-md-12 pt-md">
-                                            User Testing <strong class="pull-right">7 Days</strong>
-                                            <div class="progress progress-sm progress-striped active">
-                                                <div class="progress-bar progress-bar-warning" style="width: 80%;"></div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div> -->
-                    
-                </div>
                 
                 <div class="row">
                     
@@ -127,20 +72,7 @@
                         </div>
                     </div>
                     
-                    <!-- <div class="col-md-3 col-sm-6 col-xs-6 col-mob">
-                        <div class="panel">
-                            <div class="panel-body text-center">
-                                <h4>Settings</h4>
-                                <ul class="text-left list-unstyled list-quick-setting-1">
-                                    <li><i class="fa fa-wifi"></i> &nbsp; Wifi <a href="#" class="btn btn-danger btn-xs">Off</a></li>
-                                    <li><i class="fa fa-envelope"></i> &nbsp; Email <a href="#" class="btn btn-success btn-xs">On</a></li>
-                                    <li><i class="fa fa-linux"></i> &nbsp; Linux <a href="#" class="btn btn-success btn-xs">On</a></li>
-                                    <li><i class="fa fa-book"></i> &nbsp; Book <a href="#" class="btn btn-danger btn-xs">Off</a></li>
-                                    <li><i class="fa fa-dropbox"></i> &nbsp; Dropbox <a href="#" class="btn btn-success btn-xs">On</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
+                   
                     
                     <div class="col-md-4">
                         <div class="panel">
@@ -163,300 +95,78 @@
                     </div>
                     
                 </div>
-                
-                <div class="row">
-                    
-                    <!-- <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="monthly" id="mycalendar"></div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">TO-DO List</h3>
+                            <div class="tools">
+                                <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>                                
                             </div>
                         </div>
-                    </div> -->
-                    
-                    <!-- <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-body">
-                                <div id="browser-chart" style="height:370px;"></div>
-                            </div>
-                        </div>
-                    </div> -->
-                    
-                    
-                        
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">TO-DO List</h3>
-                                <div class="tools">
-                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>                                
+                        <div class="panel-body todoapp">
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4 id="todo-message">
+                                        <span id="todo-remaining"></span>of <span id="todo-total"></span>remaining
+                                    </h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="javascript:;" class="pull-right btn btn-success btn-sm" id="btn-archive">Archive</a>
                                 </div>
                             </div>
-                            <div class="panel-body todoapp">
-                                
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4 id="todo-message">
-                                            <span id="todo-remaining"></span>of <span id="todo-total"></span>remaining
-                                        </h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <a href="javascript:;" class="pull-right btn btn-success btn-sm" id="btn-archive">Archive</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="scroller" data-height="290px">
-                                    <ul class="list-group no-margn todo-list" id="todo-list">
+                            
+                            <div class="scroller" data-height="290px">
+                                <ul class="list-group no-margn todo-list" id="todo-list">
 
-                                    </ul>
-                                </div>
-                                    
-                            </div>
-                            <div class="panel-footer">
-                                <form name="todo-form" id="todo-form" role="form" class="m-t-20">
-                                    <div class="row">
-                                        <div class="col-sm-9 todo-inputbar">
-                                            <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
-                                        </div>
-                                        <div class="col-sm-3 todo-send">
-                                            <button class="btn-primary btn-block btn waves-effect waves-light" type="button" id="todo-btn-submit">Add</button>
-                                        </div>
-                                    </div>
-                                </form> 
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                <div class="row">
-                    
-                    <!-- <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Tickets</h3>
-                            </div>
-                            <div class="panel-body">
-                                
-                                <ul class="list-supportTickets">
-                                    
-                                    <li>
-                                        <a href="#"><img src="demo/users/img-user-15.jpg" alt="" class="img-responsive" /></a>
-                                        <div class="ticket-details">
-                                            <h4><a href="#">Something is not working in my project</a></h4>
-                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque <span class="label label-danger">Open</span></p>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-external-link"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#"><img src="demo/users/img-user-14.jpg" alt="" class="img-responsive" /></a>
-                                        <div class="ticket-details">
-                                            <h4><a href="#">What is going on now in my project?</a></h4>
-                                            <p>Vivamus diam elit diam, consecstetur dapibus adipiscing elit. <span class="label label-success">Closed</span></p>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-external-link"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#"><img src="demo/users/img-user-13.jpg" alt="" class="img-responsive" /></a>
-                                        <div class="ticket-details">
-                                            <h4><a href="#">Why it is not working on IE9?</a></h4>
-                                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <span class="label label-warning">Active</span></p>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-external-link"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#"><img src="demo/users/img-user-12.jpg" alt="" class="img-responsive" /></a>
-                                        <div class="ticket-details">
-                                            <h4><a href="#">Aliquam nec ultricies velit?</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra placerat mauris id <span class="label label-warning">Active</span></p>
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-external-link"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
                                 </ul>
-                                
                             </div>
+                                
                         </div>
-                    </div> -->
+                        <div class="panel-footer">
+                            <form name="todo-form" id="todo-form" role="form" class="m-t-20">
+                                <div class="row">
+                                    <div class="col-sm-9 todo-inputbar">
+                                        <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
+                                    </div>
+                                    <div class="col-sm-3 todo-send">
+                                        <button class="btn-primary btn-block btn waves-effect waves-light" type="button" id="todo-btn-submit">Add</button>
+                                    </div>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     
-                    <!-- <div class="col-md-4">
+                    <div class="col-md-7">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">TO-DO List</h3>
-                                <div class="tools">
-                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>                                
-                                </div>
+                                <h3 class="panel-title">Area Chart</h3>
                             </div>
-                            <div class="panel-body todoapp">
-                                
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h4 id="todo-message">
-                                            <span id="todo-remaining"></span>of <span id="todo-total"></span>remaining
-                                        </h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <a href="javascript:;" class="pull-right btn btn-success btn-sm" id="btn-archive">Archive</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="scroller" data-height="290px">
-                                    <ul class="list-group no-margn todo-list" id="todo-list">
-
-                                    </ul>
-                                </div>
-                                    
-                            </div>
-                            <div class="panel-footer">
-                                <form name="todo-form" id="todo-form" role="form" class="m-t-20">
-                                    <div class="row">
-                                        <div class="col-sm-9 todo-inputbar">
-                                            <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
-                                        </div>
-                                        <div class="col-sm-3 todo-send">
-                                            <button class="btn-primary btn-block btn waves-effect waves-light" type="button" id="todo-btn-submit">Add</button>
-                                        </div>
-                                    </div>
-                                </form> 
-                            </div>
-                        </div>
-                    </div> -->
-                    
-                    <!-- <div class="col-md-4">
-                        <div class="panel">
-                            <div class="panel-body ">
-                                <div class="chat-conversation scroller" data-height="315px">
-                                    <ul class="conversation-list">
-                                        
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-03.jpg" alt="male">
-                                                <i>10:00</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>Hello! ✋</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-01.jpg" alt="Female">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>Marco Lopes</i>
-                                                    <p>Hi, How are you?☺ What about our next meeting?😼</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-03.jpg" alt="male">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>Yeah everything is fine 👍</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-01.jpg" alt="male">
-                                                <i>10:02</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>Marco Lopes</i>
-                                                    <p>Wow that's great 👏</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-03.jpg" alt="male">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>What can you do with HTML VIEWER ?</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-01.jpg" alt="male">
-                                                <i>10:02</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>Marco Lopes</i>
-                                                    <p>It helps to beautify/format your HTML.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="demo/users/img-user-01.jpg" alt="male">
-                                                <i>10:02</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>Marco Lopes</i>
-                                                    <p>It helps to save and share HTML content and show the HTML output</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="input-group">
-                                    <input type="text" class="form-control txt-emoji" placeholder="Your Message. . . ">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">Send</button>
-                                    </span>
+                            <div class="panel-body">
+                                <div class="clearfix">
+                                    <canvas id="chart1" height="150"></canvas>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     
-                </div>
-                
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Bar Charts</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="clearfix">
+                                    <canvas id="chart2" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>         
+                    
+                </div>       
+                </div>          
             </div>  <!--END: Content Wrap-->
         
-          <!-- END: Main Container -->
-        
-        
+         
