@@ -43,7 +43,7 @@ data-page-list="[10,20,30,0,50,All]"
 
         <thead>
         <tr>
-        <th colspan="8" data-align="center">Personnels List</th>
+        <th colspan="7" data-align="center">Personnels List</th>
         </tr>
     
         <tr>
@@ -52,7 +52,6 @@ data-page-list="[10,20,30,0,50,All]"
         <th data-field="PERS_PRENOM" data-sortable="true">Last Name</th>
         <th data-field="PERS_DATE_NAIS" data-sortable="true">Date of Birth</th>
         <th data-field="PERS_SEX_X" data-sortable="true">Sex</th>
-        <th data-field="PERS_CODE_QUALIF" data-sortable="true">Qualification</th>
         <th data-field="PERS_NATURAGENT_93" data-sortable="true">Agent Nature</th>
         <th  data-sortable="true">action </th>
         </tr>
@@ -64,15 +63,8 @@ data-page-list="[10,20,30,0,50,All]"
         <td >{{ pers.PERS_PRENOM }}</td>
         <td >{{ pers.PERS_DATE_NAIS }}</td>
         <td *ngIf=" pers.PERS_SEX_X  == 'H'">homme</td>
-        <td *ngIf=" pers.PERS_SEX_X  == 'F'">femme</td>
-        <!-- @if ($personnel->PERS_SEX_X == 'H') -->
-        <!-- <td >Homme</td>
-         @else -->
-        <!-- <td >Femme</td>  -->
-        <!-- @endif -->
-       
-        <td > {{ pers.QUALIF_LIBELLE }}</td>
-        <td >{{ pers.NATAGENT_LIB_X50 }}</td>
+        <td *ngIf=" pers.PERS_SEX_X  == 'F'">femme</td>   
+        <td >{{ pers.NATAG_LIB_X50 }}</td>
         <td>
              <a routerLink="/personnels/{{ pers.PERS_MAT_95 }}" title="View "><button class="btn btn-info btn-sm"> Absence ({{ count[i] }})</button></a> 
             <a href="" title="Edit "><button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button></a>

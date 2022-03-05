@@ -18,7 +18,7 @@ count:any;
   }
   getPersonnelData(){
     this.personnelService.getData().subscribe(res =>{
-      // console.log(res);
+       console.log(res);
       this.personnels = res;
        })
   }

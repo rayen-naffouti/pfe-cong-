@@ -18,7 +18,8 @@ class PersonnelFactory extends Factory
     public function definition()
     {
         return [
-            'PERS_MAT_ACT' => $this->faker->randomDigitNot(0),
+        'PERS_MAT_ACT' => $this->faker->randomDigitNot(0),
+        'PERS_NATURAGENT_93' => $this->faker->randomDigitNot(0),
         'PERS_NOM' => $this->faker->word,
         'PERS_PRENOM' =>$this->faker->lastname,
         'PERS_DATE_NAIS' => $this->faker->date($format = 'Y-m-d', $max = 'now'),

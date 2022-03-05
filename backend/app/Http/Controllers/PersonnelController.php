@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Personnel;
+use App\Models\Natureagent;
 
 class PersonnelController extends Controller
 {
@@ -12,8 +13,8 @@ class PersonnelController extends Controller
     {
         
          $personnels=Personnel::
-            join('qualifications','personnels.PERS_CODE_QUALIF','qualifications.QUALIF_CODE')
-            ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAGENT_CODE_93')
+            // join('qualifications','personnels.PERS_CODE_QUALIF','qualifications.QUALIF_CODE')
+            join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
              ->get();
    
          return response()->json($personnels,200);
@@ -21,8 +22,7 @@ class PersonnelController extends Controller
     public function abse()
     {
       $personnels=Personnel::
-            join('qualifications','personnels.PERS_CODE_QUALIF','qualifications.QUALIF_CODE')
-            ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAGENT_CODE_93')
+            join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
              ->get();
       $count = array();
            for($i = 1;$i<=count($personnels);$i++)

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'node_modules/chart.js'
+import { DashboardService } from 'src/app/service/dashboard.service';
 
 
 
@@ -13,10 +14,11 @@ declare function TodoApp(): any;
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  stats:any;
+  constructor( private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
+    this.getstats();
     handle_Knob();
     handle_SparklineCharts();
     
@@ -60,43 +62,14 @@ export class DashboardComponent implements OnInit {
     });
 
 
-    var data4 = [
-      {
-          value: 300,
-          color:"#01c0c8",
-          highlight: "#01c0c8",
-          label: "Megna"
-      },
-      {
-          value: 50,
-          color: "#25a6f7",
-          highlight: "#25a6f7",
-          label: "Blue"
-      },
-      {
-          value: 100,
-          color: "#fb9678",
-          highlight: "#fb9678",
-          label: "Orange"
-      }
-  ];
-
-    var chart2 = new Chart("chart2", {
-      type: 'pie',
-      data: {
-          labels: ['Red', 'Blue', 'Yellow'],
-          datasets: [{
-              label: '# of Votes',
-              data: data4,
-          }]
-      },
-      options: {
-        
-        responsive: true
-      }
-    });
-
-
+   
+  }
+  getstats(){
+    this.dashboardService.getStats().subscribe(res =>{
+       
+     this.stats = res;
+     console.log(this.stats);
+       })
   }
 
 }
