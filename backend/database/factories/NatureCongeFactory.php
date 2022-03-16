@@ -17,7 +17,8 @@ class NatureCongeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'NOM' => $this->faker->word,
+            'DESCRIPTION' => $this->faker->word,
         ];
     }
 }

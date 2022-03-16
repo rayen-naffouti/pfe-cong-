@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonnelController;   
 use App\Http\Controllers\StatsController;  
+use App\Http\Controllers\CongeController;  
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,5 @@ Route::get('personnels',[PersonnelController::class,'index']);
 Route::get('personnels/abse',[PersonnelController::class,'abse']);
 Route::get('personnels/{PERS_MAT_95}',[PersonnelController::class,'show']);
 
+Route::get('conge',[CongeController::class,'index']);
+Route::post('conge',[CongeController::class,'store']);

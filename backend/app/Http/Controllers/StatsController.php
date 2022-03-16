@@ -31,10 +31,12 @@ class StatsController extends Controller
         $yesterday = date('Y-m-d',strtotime("-1 days"));
 
         $absence=DB::table('absences')
-            ->where('ABS_DATE_DEB', '=', $ldate )
+            ->where('ABS_DATE_DEB', '<=', $ldate )
+            ->where('ABS_DATE_FIN', '>=', $ldate )
             ->get();
         $absence2=DB::table('absences')
-            ->where('ABS_DATE_DEB', '=', $yesterday )
+            ->where('ABS_DATE_DEB', '<=', $yesterday )
+            ->where('ABS_DATE_DEB', '>=', $yesterday )
             ->get();
         $absence=count($absence);
         $absence2=count($absence2);
@@ -43,13 +45,13 @@ class StatsController extends Controller
         $perabsence2 = $absence2 * 100 / $sum;
         $json = array();
         $json = [
-            'homme' => $homme,
-            'femme' => $femme,
+            'homme' => round($homme),
+            'femme' => round($femme),
             'sum' => $sum,
             'absence' => $absence,
             'absence2' => $absence2,
-            'perabsence' => $perabsence,
-            'perabsence2' => $perabsence2
+            'perabsence' => round($perabsence),
+            'perabsence2' => round($perabsence2)
         ];
     return response()->json($json,200);
         // ->with('homme', $homme)
