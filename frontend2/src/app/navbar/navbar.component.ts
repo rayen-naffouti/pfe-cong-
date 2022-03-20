@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,28 +13,34 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   form!: FormGroup;
   user:any;
+  test:any;
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
   }
 
   ngOnInit(): void {
-    
-    this.http.get('http://localhost:8000/api/user', {withCredentials: true}).subscribe(
-    res => {
+    this.getUser();
+    if (this.authService.loggedIn()){
+      this.test = true;
+    }else{
+      this.test = false
+    }
+    console.log(this.test)
+  }
+  
+  getUser(){
+    this.authService.getuser().subscribe(res => {
       this.user = res;
-      console.log(this.user)
-      },
-      
-    );
+      //  console.log(this.user)
+    })
   }
+
   logout(): void {
-    this.http.post('http://localhost:8000/api/logout', {}, {withCredentials: true})
-    .subscribe(() => this.router.navigate(['/login']).then(() => {
-      window.location.reload();
-    }));
-    
+    this.authService.logout();
   }
+
   
 }

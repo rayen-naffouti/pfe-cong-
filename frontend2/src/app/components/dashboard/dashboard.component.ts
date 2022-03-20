@@ -13,6 +13,10 @@ declare var TodoApp: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  template: `
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+  `,
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
@@ -31,7 +35,7 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getStats().subscribe(res =>{
        
      this.stats = res;
-     console.log(this.stats)
+    //  console.log(this.stats)
           
     var chart1 = new Chart("chart1", {
       type: 'pie',

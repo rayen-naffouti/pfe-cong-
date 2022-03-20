@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LocalStorageService } from "src/app/service/local-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private localStorageService: LocalStorageService
   ) {
   }
 
@@ -31,9 +33,10 @@ export class LoginComponent implements OnInit {
   submit(): void {
     this.http.post('http://localhost:8000/api/login', this.form.getRawValue(), {
       withCredentials: true
-    }).subscribe(() => this.router.navigate(['/dashboard']).then(() => {
-      window.location.reload();
-    }));
+    }).subscribe((res: any) => {
+    this.router.navigate(['/dashboard']).then(() => {window.location.reload();})
+    this.localStorageService.set('access_token', 'token');
+  });
     
   }
   

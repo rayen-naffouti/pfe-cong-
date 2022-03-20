@@ -1,8 +1,9 @@
 
     
-    <div class="wrapper has-footer" *ngIf="user.name">
+    <div class="wrapper has-footer"  >
+        <div *ngIf="test ">
         
-        <header class="header-top navbar fixed-top">
+        <header class="header-top navbar fixed-top" >
             
             <div class="top-bar">   <!-- START: Responsive Search -->
                 <div class="container">
@@ -62,7 +63,7 @@
                             <div class="user-name"> <small class="fa fa-angle-down"></small></div>
                         </a>
                         <ul class="dropdown-menu dropdown-animated pop-effect" role="menu">
-                            <li><a href=""><i class="sli-user"></i>{{user.name }}</a></li>
+                            <li><a href=""><i class="sli-user"></i>{{ user.name}}</a></li>
                             <li><a href=""><i class="sli-users"></i> Register User</a></li>
                             <li role="#" class="divider"></li>
                             <li>
@@ -79,7 +80,7 @@
             
         </header>   <!-- END: Header -->
         
-        <aside class="side-navigation-wrap sidebar-fixed">  <!-- START: Side Navigation -->
+        <aside class="side-navigation-wrap sidebar-fixed"  >  <!-- START: Side Navigation -->
             <div class="sidenav-inner">
                 
                 <ul class="side-nav magic-nav">
@@ -122,7 +123,7 @@
             </div><!-- END: sidebar-inner -->
             
         </aside>    <!-- END: Side Navigation -->
-        
+        </div>
         
             <router-outlet></router-outlet>
 
