@@ -1,9 +1,7 @@
-
-    
-    <div class="wrapper has-footer"  >
-        <div *ngIf="test ">
+    <div class="wrapper has-footer" >
+        <div *ngIf="test">
         
-        <header class="header-top navbar fixed-top" >
+        <header class="header-top navbar fixed-top" style="border-bottom: 1px solid #363b5b !important;">
             
             <div class="top-bar">   <!-- START: Responsive Search -->
                 <div class="container">
@@ -23,8 +21,8 @@
                 </button>
 
                 <a class="navbar-brand" href="" style="margin-top: 10px">
-                    <img src="assets/assets/images/logo.png" style="margin-right : 30px;">
-                    <span style="margin-top: 40px;color:#8386a0;font-size: xx-large">ETAP</span>
+                    <img src="assets/assets/images/logo.png" style="margin-right : 15px;">
+                    <span style="color:rgba(255, 255, 255, 0.733);font-size: xx-large">ETAP</span>
                 </a>
 
                 <ul class="nav navbar-nav-xs">  <!-- START: Responsive Top Right tool bar -->
@@ -64,7 +62,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-animated pop-effect" role="menu">
                             <li><a href=""><i class="sli-user"></i>{{ user.name}}</a></li>
-                            <li><a href=""><i class="sli-users"></i> Register User</a></li>
+                            <li><a routerLink="/register"><i class="sli-users"></i> Register User</a></li>
                             <li role="#" class="divider"></li>
                             <li>
                         <form [formGroup]="form" (submit)="logout()">           
@@ -91,32 +89,32 @@
                         <a routerLink="/dashboard"><i class="sli-dashboard"></i> <span class="nav-text">Dashboard</span></a>
                     </li>
                     
-                    
-                    
                     <li class="has-submenu">
-                        <a href="#submenuOne" data-toggle="collapse" aria-expanded="false">
-                            <i class="fs-users"></i> 
-                            <span class="nav-text">Table Personnels</span>
+                        <a href="#submenuTwo" data-toggle="collapse" aria-expanded="false">
+                            <i class="ti-calendar"></i> 
+                            <span class="nav-text">congé</span>
                         </a>
-                        <div class="sub-menu collapse secondary" id="submenuOne">
+                        <div class="sub-menu collapse secondary" id="submenuTwo">
                             <ul>
-                                <li><a routerLink="/personnels">Personnels List</a></li>
-                                <li><a href="">Create Personnel</a></li>
+                                <li><a routerLink="/conge"> <i class="fs-list-3" style="margin-right: 3px;"></i> congé list</a></li>
+                                <li><a href="#"> <i class=" fs-plus-circle" style="margin-right: 3px;"></i> add congé</a></li>
                             </ul>
                         </div>
                     </li>
 
-                    
-                    
-
                     <li>
-                        <a routerLink="/conge"><i class="ti-calendar"></i> <span class="nav-text">add congé</span></a>
+                        <a routerLink="/personnels/{{user.id}}"><i class="fs-clock-3"></i> <span class="nav-text">Absence</span></a>
                     </li>
-                   
+
                     
+                    <ul class="side-nav magic-nav" *ngIf=" user.role == 'admin'">
+                        <li class="side-nav-header">Admin</li>
+
+                        <li>
+                            <a routerLink="/personnels"><i class="fs-users"></i> <span class="nav-text">Personnels</span></a>
+                        </li>
                     
-                    
-      
+                    </ul>
                     
                 </ul>
                 
@@ -126,10 +124,7 @@
         </div>
         
             <router-outlet></router-outlet>
-
-        
-       
-        
+  
     </div>  <!-- END: wrapper -->
   
 

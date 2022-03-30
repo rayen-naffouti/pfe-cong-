@@ -17,14 +17,20 @@ return new class extends Migration
             $table->Increments('PERS_MAT_95');
             $table->integer('PERS_MAT_ACT');
             $table->integer('PERS_NUMASS_94')->nullable();
-            $table->string('PERS_NATURAGENT_93',40)->nullable();
+
+            $table->integer('PERS_NATURAGENT_93')->unsigned();
+            $table->foreign('PERS_NATURAGENT_93')->references('NATAG_CODE_93')->on('natureagents')->softDeletes();
+            
             $table->integer('PERS_CODFONC_92')->nullable();
             $table->integer('PERS_CODGROUP_92')->nullable();
             $table->integer('PERS_CET_9')->nullable();
             $table->string('PERS_NOM_X40',250)->nullable();
             $table->string('PERS_NOM',100)->nullable();
             $table->string('PERS_PRENOM',100)->nullable();
-            $table->string('EMAIL',200)->nullable();
+
+            // $table->string('EMAIL',200);
+            // $table->foreign('EMAIL')->references('email')->on('users')->softDeletes();
+
             $table->enum('PERS_SEX_X', ['F', 'H'])->nullable();
             $table->string('PERS_ETACIVIL_X',1)->nullable();
             $table->string('PERS_NJFILLE_X20',20)->nullable();

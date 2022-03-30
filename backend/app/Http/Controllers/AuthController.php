@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Models\User;
+use App\Models\Personnel;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        $input = $request->all();
+        Personnel::create($input);
         return User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),

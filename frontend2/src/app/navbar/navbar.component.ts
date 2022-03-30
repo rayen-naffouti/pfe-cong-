@@ -28,13 +28,13 @@ export class NavbarComponent implements OnInit {
     }else{
       this.test = false
     }
-    console.log(this.test)
+    // console.log(this.test)
   }
   
   getUser(){
     this.authService.getuser().subscribe(res => {
       this.user = res;
-      //  console.log(this.user)
+        // console.log(this.user)
     })
   }
 

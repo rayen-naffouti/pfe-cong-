@@ -34,4 +34,5 @@ Route::get('personnels/abse',[PersonnelController::class,'abse']);
 Route::get('personnels/{PERS_MAT_95}',[PersonnelController::class,'show']);
 
 Route::get('conge',[CongeController::class,'index']);
+Route::get('conge/{PERS_MAT_95}',[CongeController::class,'show']);
 Route::post('conge',[CongeController::class,'store']);

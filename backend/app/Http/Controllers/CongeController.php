@@ -48,9 +48,14 @@ class CongeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($PERS_MAT_95)
     {
-        //
+        $conge=Conge::
+            where('conges.CONG_NUMORD_93',$PERS_MAT_95)
+            ->get() ;
+                // $count =  $personnels->count();
+                // dd($count);
+            return  $conge;
     }
 
     /**

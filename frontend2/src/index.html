@@ -18,8 +18,13 @@
     <link rel="stylesheet" type="text/css" href="assets/assets/plugins/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/assets/plugins/monthly/css/monthly.css">
     <link rel="stylesheet" type="text/css" href="assets/assets/plugins/emojionearea/emojionearea.min.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/assets/css/bs-overide/bootstrap.wizard.css">
+    <link rel="stylesheet" type="text/css" href="assets/assets/plugins/animate-it/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/assets/css/lib/cmp-bs-checkbox.css">
+    <link rel="stylesheet" type="text/css" href="assets/assets/css/lib/page-login.css">
+    <link rel="stylesheet" type="text/css" media="all"  href="assets/assets/plugins/dropzone/dropzone.css" />
     <link rel="stylesheet" type="text/css" href="assets/assets/css/main.css">
+
     <link rel="stylesheet" type="text/css" href="assets/assets/css/style-default.css">
 </head>
 <body class="mat-typography">
@@ -45,12 +50,18 @@
   <script type="text/javascript" src="assets/assets/plugins/emojionearea/emojionearea.min.js"></script>
   <script type="text/javascript" src="assets/assets/plugins/chartjs/Chart.min.js"></script>
 
+  <script type="text/javascript" src="assets/assets/plugins/lib/bootstrap.wizard.min.js"></script>
+  <script type="text/javascript" src="assets/assets/plugins/dropzone/dropzone.js"></script>
   <script type="text/javascript" src="assets/assets/js/chart-chartjs.js"></script>
 
   <script type="text/javascript" src="assets/assets/js/app.base.js"></script>
   <script type="text/javascript" src="assets/assets/js/cmp-todo.js"></script>
   <script type="text/javascript" src="assets/assets/js/page-dashboard.js"></script> 
- 
+  <script>
+    jQuery(document).ready(function () {
+        DropZone.init();
+    });
+</script>
   
 </body>
 </html>

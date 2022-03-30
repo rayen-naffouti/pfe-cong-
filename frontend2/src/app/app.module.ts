@@ -20,8 +20,7 @@ const appRoutes: Routes = [
 
   { path: 'login', component: LoginComponent},
 
-  { path: 'register', component: RegisterComponent ,
-  canActivate: [AuthGuard]
+  { path: 'register', component: RegisterComponent 
   },
   
   { path: 'dashboard', loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule) ,
@@ -29,11 +28,11 @@ const appRoutes: Routes = [
   },
   
   { path: 'personnels', loadChildren: () => import('./components/personnels/personnels.module').then(m => m.PersonnelsModule) ,
-  canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   
   { path : 'conge', component: CongeComponent,
-  canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   } 
 
 ]

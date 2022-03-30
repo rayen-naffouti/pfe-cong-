@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Personnel;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Absence>
@@ -16,8 +17,9 @@ class AbsenceFactory extends Factory
      */
     public function definition()
     {
+        // $pers=Personnel::get('PERS_MAT_95')->random();
         return [
-        'ABS_NUMORD_93' =>  $this->faker->randomDigitNot(0),
+        'ABS_NUMORD_93' =>  $this->faker-> randomDigitNot(0),
         'ABS_NAT_9' => $this->faker-> randomDigitNot(0),
         'ABS_CAT_9' => $this->faker->randomDigitNot(0),
         'ABS_DATE_DEB' => $this->faker->date($format = 'Y-m-d', $max = 'now'),

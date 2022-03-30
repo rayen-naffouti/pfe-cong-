@@ -9,4 +9,8 @@ class Natabse extends Model
 {
     protected $primaryKey = 'CODE_ABS';
     use HasFactory;
+    public function absences()
+    {
+        return $this->hasMany(Absence::class,'ABS_MAT_95');
+    }
 }

@@ -23,14 +23,21 @@ export class RegisterComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: '',
       email: '',
-      password: ''
+      password: '',
+      PERS_MAT_ACT: '',
+      PERS_NOM: '',
+      PERS_PRENOM: '',
+      PERS_DATE_NAIS: '',
+      PERS_SEX_X: '',
+      PERS_NATURAGENT_93: ''
+
     });
   }
 
   submit(): void {
-    // console.log(this.form.getRawValue())
+   //  console.log(this.form.getRawValue())
     this.http.post('http://localhost:8000/api/register', this.form.getRawValue())
-      .subscribe(() => this.router.navigate(['/login']));
+        .subscribe(() => this.router.navigate(['/dashboard']));
     
   }
 

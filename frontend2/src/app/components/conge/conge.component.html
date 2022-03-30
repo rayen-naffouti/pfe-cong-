@@ -2,7 +2,7 @@
         <div class="main-container">    <!-- START: Main Container -->
             
             <div class="page-header">
-                <h1>Add Congé</h1>
+                <h1>List Congé</h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="index.php">Forms</a></li>
@@ -12,73 +12,180 @@
             
             <div class="content-wrap">  <!--START: Content Wrap-->
                 
-                <div class="row">
-                    
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Validation Engine</h3>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                      
+                        <main role="main" class="col-md-12">
+                            <div class="panel">
+                                
+                            <div class="projects mb-4">
+                                <div class="projects-inner">
+                                    <header class="projects-header">
+                                        <div class="title">{{user.name}} congé</div>
+                                        <div class="count">| 32 Congé</div>
+                                        <i class="zmdi zmdi-download"></i>
+                                    </header>
+                                    <table class="projects-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Conge</th>
+                                                <th>Debut</th>
+                                                <th>End</th>
+                                                <th>Owner</th>
+                                                <th>Budget</th>
+                                                <th>Status</th>
+                                                <th class="text-right">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tr *ngFor="let cong of conge ">
+                                            <td>
+                                                <p>Maladie</p>
+                                                <p>{{cong.CONG_NBRJOUR_93}} Days</p>
+                                            </td>
+                                            <td>
+                                                <p>{{cong.CONG_DATE_DEB}}</p>
+                                                <p class="text-danger">{{cong.CONG_PERDEB_X}}M</p>
+                                            </td>
+                                            <td>
+                                                <p>{{cong.CONG_DATE_FIN}}</p>
+                                                <p class="text-danger">{{cong.CONG_PERFIN_X}}M</p>
+                                            </td>
+                                            <td class="member">
+                                                <figure><img src="assets/demo/users/téléchargé.jpg" /></figure>
+                                                <div class="member-info">
+                                                    <p>Rayen Naffouti</p>
+                                                    <p>Engineer</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>$4,670</p>
+                                                <p>Paid</p>
+                                            </td>
+                                            <td class="status">
+                                                <span class="status-text status-green">Approved</span>
+                                            </td>
+                                            <td>
+                                                <form class="form" action="#" method="POST">
+                                                    <select class="action-box">
+                                                        <option>Actions</option>
+                                                        <option>Start project</option>
+                                                        <option>Send for QA</option>
+                                                        <option>Send invoice</option>
+                                                    </select>
+                                                      
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr class="danger-item">
+                                            <td>
+                                                <p>New Dashboard</p>
+                                                <p>Google</p>
+                                            </td>
+                                            <td>
+                                                <p>17th Oct, 15</p>
+                                                <p class="text-danger">Overdue</p>
+                                            </td>
+                                            <td class="member">
+                                                <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
+                                                <div class="member-info">
+                                                    <p>Myrtle Erickson</p>
+                                                    <p>UK Design Team</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>$4,670</p>
+                                                <p>Paid</p>
+                                            </td>
+                                            <td class="status">
+                                                <span class="status-text status-red">Blocked</span>
+                                            </td>
+                                            <td>
+                                                <form class="form" action="#" method="POST">
+                                                    <select class="action-box">
+                                                        <option>Actions</option>
+                                                        <option>Start project</option>
+                                                        <option>Send for QA</option>
+                                                        <option>Send invoice</option>
+                                                    </select>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <p>New Dashboard</p>
+                                                <p>Google</p>
+                                            </td>
+                                            <td>
+                                                <p>17th Oct, 15</p>
+                                                <p class="text-danger">Overdue</p>
+                                            </td>
+                                            <td class="member">
+                                                <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
+                                                <div class="member-info">
+                                                    <p>Myrtle Erickson</p>
+                                                    <p>UK Design Team</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>$4,670</p>
+                                                <p>Paid</p>
+                                            </td>
+                                            <td class="status">
+                                                <span class="status-text status-blue">Early stages</span>
+                                            </td>
+                                            <td>
+                                                <form class="form" action="#" method="POST">
+                                                    <select class="action-box">
+                                          <option>Actions</option>
+                                          <option>Start project</option>
+                                          <option>Send for QA</option>
+                                          <option>Send invoice</option>
+                                        </select>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>New Dashboard</p>
+                                                <p>Google</p>
+                                            </td>
+                                            <td>
+                                                <p>17th Oct, 15</p>
+                                                <p class="text-danger">Overdue</p>
+                                            </td>
+                                            <td class="member">
+                                                <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
+                                                <div class="member-info">
+                                                    <p>Myrtle Erickson</p>
+                                                    <p>UK Design Team</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>$4,670</p>
+                                                <p>Paid</p>
+                                            </td>
+                                            <td class="status">
+                                                <span class="status-text status-green">Approved</span>
+                                            </td>
+                                            <td>
+                                                <form class="form" action="#" method="POST">
+                                                    <select class="action-box">
+                                          <option>Actions</option>
+                                          <option>Start project</option>
+                                          <option>Send for QA</option>
+                                          <option>Send invoice</option>
+                                        </select>
+                                                </form>
+                                            </td>
+                                        </tr> -->
+                                    </table>
+                                </div>
                             </div>
-                            <div class="panel-body">
-
-                                <form action="#" role="form" id="formvalidationtooltip">
-                                    <div class="form-body">
-
-                                        <div class="form-group">
-                                            <label>First Name</label>
-                                            <input type="text" class="form-control validate[required]" name="firstname" id="firstname" placeholder="First Name" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" class="form-control validate[required]" name="firstname" id="firstname" placeholder="First Name" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>E Mail ID</label>
-                                            <input type="text" class="form-control validate[required,custom[email]]" name="email" id="email" placeholder="E-Mail" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Only Letters And Digits</label>
-                                            <input type="text" class="form-control validate[required,custom[onlyLetterNumber]]" name="spacel" id="spacel" placeholder="Only Numbers And Digits" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type = "password" name = "txtPassword" id = "txtPassword" class = "form-control validate[required,minSize[6],maxSize[50]]" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type = "password" name = "txtCPassword" id = "txtCPassword" class = "form-control validate[required,equals[txtPassword]]" data-prompt-position="topLeft">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Only Letters And Digits</label>
-                                            <select name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft">
-                                                <option value="">Choose a sport</option>
-                                                <option value="option1">Tennis</option>
-                                                <option value="option2">Football</option>
-                                                <option value="option3">Golf</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-actions fluid">
-                                        <div class="col-md-12 text-right">
-                                            <button type="submit" class="btn btn-info">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>  <!-- END: Panel Body -->
-                        </div>  <!-- END: Panel -->
+                        </div>
+                        </main>
                     </div>
-
-                  
-                    
                 </div>
                     
                 

@@ -48,6 +48,7 @@ body {
     font-family: 'DIN Next LT Pro', sans-serif;
     background-color: #F1F4F7;
     color: #363A5C;
+    padding-top: 60px;
 }
 
 
@@ -100,6 +101,8 @@ body {
     height: 32px;
     float: left;
     margin-right: 8px;
+    margin-top: -3px;
+    margin-left: 17px;
 }
 
 .header-top .navbar-brand:hover,
@@ -631,7 +634,8 @@ li.user-profile .dropdown-menu > li > a > i{
     font-size: 12px;
     padding-right: 30px;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
+    border: 1px solid #363b5b;
 }
 
 @media (max-width: 767px) {
@@ -1164,7 +1168,6 @@ li.user-profile .dropdown-menu > li > a > i{
 .wrapper {
     position: relative;
     min-height: 100%;
-    padding-top: 60px;
     overflow: hidden
 }
 

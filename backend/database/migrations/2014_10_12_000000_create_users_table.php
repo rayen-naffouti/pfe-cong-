@@ -17,6 +17,8 @@ return new class extends Migration
             $table->Increments('id');
             $table->string('name',50);
             $table->string('email',50)->unique();
+            $table->string('image',50)->nullable();
+            $table->enum('role', ['user', 'admin'])->nullable();
             $table->string('password');
             $table->timestamps();
         });

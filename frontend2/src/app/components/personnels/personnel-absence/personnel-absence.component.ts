@@ -19,7 +19,7 @@ export class PersonnelAbsenceComponent implements OnInit {
   }
   getPersonnelabsence(){
     this.personnelService.getabsence(this.PERS_MAT_95).subscribe(res =>{
-       console.log(res);
+      //  console.log(res);
        this.persabs = res;
        })
   }

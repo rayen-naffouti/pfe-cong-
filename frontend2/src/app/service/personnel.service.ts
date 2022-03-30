@@ -16,4 +16,7 @@ export class PersonnelService {
   getabsence(PERS_MAT_95:number){
     return this.httpClient.get('http://127.0.0.1:8000/api/personnels' + '/' + PERS_MAT_95);
   }
+  getconge(id:number){
+    return this.httpClient.get('http://127.0.0.1:8000/api/conge' + '/' + id);
+  }
 }

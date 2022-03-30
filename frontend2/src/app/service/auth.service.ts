@@ -22,13 +22,12 @@ export class AuthService {
       this.httpClient.post('http://localhost:8000/api/logout', {}, {withCredentials: true})
        .subscribe(() => this.router.navigate(['/login']).then(() => {
          window.location.reload();
-         this.localStorageService.set('access_token', null);
+         this.localStorageService.clear('access_token');
        }));
       }
 
   loggedIn(){
-    const user = JSON.parse(localStorage.getItem('access_token') || '') ;
-    return (user !== null ) ? true : false;
+    return !!localStorage.getItem('access_token');
   }
 
 
