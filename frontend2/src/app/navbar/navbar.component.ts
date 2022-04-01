@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class NavbarComponent implements OnInit {
   form!: FormGroup;
   user:any;
+  userimagepath:any = 'http://127.0.0.1:8000/image/';
   test:any;
   constructor(
     private http: HttpClient,

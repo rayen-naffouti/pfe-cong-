@@ -15,12 +15,33 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        $user = new User;
+        // $input = $request->all();
+        // Personnel::create($input);
+        // return User::create([
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'password' => Hash::make ($request->input('password')),
+        //     'image' => $request->input('image'),
+        // ]);
+
+        $filename = $request->file('image')->getClientOriginalName();
+        $filenameonly = pathinfo($filename, PATHINFO_FILENAME);
+        $extenshion = $request->file('image')->getClientOriginalExtension();
+        $compic = str_replace(' ','_',$filenameonly).'-'.rand() . '_'.time(). '.'.$extenshion;
+        $path = $request->file('image')->move('image',$compic);
+
+        
         $input = $request->all();
         Personnel::create($input);
+       
+        
         return User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => Hash::make ($request->input('password'))
+            'password' => Hash::make ($request->input('password')),
+            'image' => $request->input('image', $compic),
+            
         ]);
     }
 
