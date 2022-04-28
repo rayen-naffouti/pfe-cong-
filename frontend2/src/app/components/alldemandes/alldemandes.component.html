@@ -1,0 +1,135 @@
+
+        <div class="main-container">    <!-- START: Main Container -->
+            
+            <div class="page-header">
+                <h1>List Congé</h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="index.php">Forms</a></li>
+                    <li class="active">Validation</li>
+                </ol>
+            </div>
+            
+            <div class="content-wrap">  <!--START: Content Wrap-->
+                
+                
+                <div class="container-fluid">
+                    <div class="row">
+                      
+                        <main role="main" class="col-md-12">
+                            <div class="panel">
+                                
+                            <div class="projects mb-4">
+                                <div class="projects-inner">
+                                    <header class="projects-header">
+                                        <div class="title">liste demande congé</div>
+                                        <div class="count">| {{count}} Congé</div>
+                                        <i class="zmdi zmdi-download"></i>
+                                    </header>
+
+
+                                
+                                
+
+
+                                    <table class="projects-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Conge</th>
+                                                <th>Debut</th>
+                                                <th>End</th>
+                                                <th>Owner</th>
+                                                <th>Budget</th>
+                                                <th>Status</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tr *ngFor="let cong of conges ">
+                                            <td>
+                                                <p>{{cong.NOM}}</p>
+                                                <p>{{cong.nbrjour}} Days</p>
+                                            </td>
+                                            <td>
+                                                <p>{{cong.debut}}</p>
+                                                <p class="text-danger">{{cong.debutX}}M</p>
+                                            </td>
+                                            <td>
+                                                <p>{{cong.fin}}</p>
+                                                <p class="text-danger">{{cong.finx}}M</p>
+                                            </td>
+                                            <td class="member">
+                                                <figure><img src="{{userimagepath}}{{user.image}}" /></figure>
+                                                <div class="member-info">
+                                                    <p>{{ cong.PERS_NOM}} {{ cong.PERS_PRENOM}}</p>
+                                                    <p>{{ cong.NATAG_LIB_X50}}</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>$4,670</p>
+                                                <p>Paid</p>
+                                            </td>
+                                            <td class="status">
+                                                <span class="status-text status-orange">Progress</span>
+                                            </td>
+                                            <td>
+                                                 <div class="modal fade" id="myModal">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            
+                                                            <div class="model-body"> 
+                                                                 <!-- <object data="'{{test}}'" width="100%" height="600px" type='application/pdf'>
+                                
+                                                                 </object>     -->
+                                                                 <!-- <ngx-extended-pdf-viewer [src]="" [useBrowserLocale]="false"></ngx-extended-pdf-viewer> -->
+                                                                 <!-- <div class="content-wrapper">
+                                                                    <ejs-pdfviewer id="pdfViewer" [serviceUrl]='service' [documentPath]='document' style="height:640px;display:block"></ejs-pdfviewer>
+                                                                  </div> -->
+                                                                  <pdf-viewer
+                                                                  [src]="src"
+                                                                  [rotation]="0"
+                                                                  [original-size]="false"
+                                                                  [show-all]="true"
+                                                                  [fit-to-page]="false"
+                                                                  [zoom]="1"
+                                                                  [zoom-scale]="'page-width'"
+                                                                  [stick-to-page]="false"
+                                                                  [render-text]="true"
+                                                                  [external-link-target]="'blank'"
+                                                                  [autoresize]="true"
+                                                                  [show-borders]="false"
+                                                                  style="width: 100%; height: 600px;"
+                                                                ></pdf-viewer>
+                                                            </div>
+                                                            <div class="model-footer">
+                                                                <input class="btn btn-default" data-dismiss="modal" value="Close">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" data-toggle="modal" data-target="#myModal"> 
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        Open PDF
+                                                    </button></a>
+                                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px; background-color: #66b92e; border-color: #66b92e;">
+                                                        Modify PDF
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px; background-color: #da932c; border-color: #da932c;">
+                                                        Modify PDF
+                                                    </button>  -->
+                                                   
+                                            </td>
+                                        </tr>
+                                    
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        </main>
+                    </div>
+                </div>
+                    
+                
+            </div>  <!--END: Content Wrap-->
+            
+        </div>  <!-- END: Main Container -->
+        

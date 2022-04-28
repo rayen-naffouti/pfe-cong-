@@ -15,10 +15,26 @@ class PersonnelController extends Controller
          $personnels=Personnel::
             // join('qualifications','personnels.PERS_CODE_QUALIF','qualifications.QUALIF_CODE')
             join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
+            ->join('users','personnels.PERS_MAT_95','users.id')
              ->get();
    
          return response()->json($personnels,200);
     }
+
+
+    public function pers($PERS_MAT_95)
+    {
+        
+         $personnels=Personnel::
+            join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
+            ->where('personnels.PERS_MAT_95',$PERS_MAT_95)
+            ->get();
+   
+         return response()->json($personnels,200);
+    }
+
+
+
     public function abse()
     {
       $personnels=Personnel::

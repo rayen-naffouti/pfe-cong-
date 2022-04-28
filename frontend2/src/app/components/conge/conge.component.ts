@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class CongeComponent implements OnInit {
   user:any;
   conge:any;
+  userimagepath:any = 'http://127.0.0.1:8000/image/';
   constructor(
     private authService: AuthService,
     private personnelService: PersonnelService
@@ -23,7 +24,6 @@ export class CongeComponent implements OnInit {
   getUser(){
     this.authService.getuser().subscribe(res => {
       this.user = res;
-        // console.log(this.user)
     })
   }
 

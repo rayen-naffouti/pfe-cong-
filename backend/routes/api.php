@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PersonnelController;   
 use App\Http\Controllers\StatsController;  
 use App\Http\Controllers\CongeController;  
+use App\Http\Controllers\DemandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,14 @@ Route::get('stats',[StatsController::class,'index']);
 
 Route::get('personnels',[PersonnelController::class,'index']);
 Route::get('personnels/abse',[PersonnelController::class,'abse']);
+Route::get('personnel/{PERS_MAT_95}',[PersonnelController::class,'pers']);
 Route::get('personnels/{PERS_MAT_95}',[PersonnelController::class,'show']);
+
 
 Route::get('conge',[CongeController::class,'index']);
 Route::get('conge/{PERS_MAT_95}',[CongeController::class,'show']);
 Route::post('conge',[CongeController::class,'store']);
+
+Route::post('demande',[DemandeController::class,'save']);
+Route::get('demande',[DemandeController::class,'index']);
+Route::get('demande/{PERS_MAT_95}',[DemandeController::class,'persdemande']);

@@ -14,8 +14,11 @@ class CongeController extends Controller
      */
     public function index()
     {
-        $conge=Conge::get();
-   
+        $conge=Conge::
+        join('personnels','personnels.PERS_MAT_95','conges.CONG_NUMORD_93')
+        ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
+        ->join('nature_conges','conges.CONG_NAT_9','nature_conges.CODE')
+         ->get();
          return response()->json($conge,200);
     }
 
@@ -51,7 +54,10 @@ class CongeController extends Controller
     public function show($PERS_MAT_95)
     {
         $conge=Conge::
-            where('conges.CONG_NUMORD_93',$PERS_MAT_95)
+            join('personnels','personnels.PERS_MAT_95','conges.CONG_NUMORD_93')
+            ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
+            ->join('nature_conges','conges.CONG_NAT_9','nature_conges.CODE')
+            ->where('conges.CONG_NUMORD_93',$PERS_MAT_95)
             ->get() ;
                 // $count =  $personnels->count();
                 // dd($count);

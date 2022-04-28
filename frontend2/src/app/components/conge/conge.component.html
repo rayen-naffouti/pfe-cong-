@@ -23,7 +23,7 @@
                                 <div class="projects-inner">
                                     <header class="projects-header">
                                         <div class="title">{{user.name}} congé</div>
-                                        <div class="count">| 32 Congé</div>
+                                        <div class="count">| 39 Congé</div>
                                         <i class="zmdi zmdi-download"></i>
                                     </header>
                                     <table class="projects-table">
@@ -35,12 +35,12 @@
                                                 <th>Owner</th>
                                                 <th>Budget</th>
                                                 <th>Status</th>
-                                                <th class="text-right">Actions</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tr *ngFor="let cong of conge ">
                                             <td>
-                                                <p>Maladie</p>
+                                                <p>{{cong.NOM}}</p>
                                                 <p>{{cong.CONG_NBRJOUR_93}} Days</p>
                                             </td>
                                             <td>
@@ -52,10 +52,10 @@
                                                 <p class="text-danger">{{cong.CONG_PERFIN_X}}M</p>
                                             </td>
                                             <td class="member">
-                                                <figure><img src="assets/demo/users/téléchargé.jpg" /></figure>
+                                                <figure><img src="{{userimagepath}}{{user.image}}" /></figure>
                                                 <div class="member-info">
-                                                    <p>Rayen Naffouti</p>
-                                                    <p>Engineer</p>
+                                                    <p>{{ cong.PERS_NOM}} {{ cong.PERS_PRENOM}}</p>
+                                                    <p>{{ cong.NATAG_LIB_X50}}</p>
                                                 </div>
                                             </td>
                                             <td>
@@ -66,15 +66,10 @@
                                                 <span class="status-text status-green">Approved</span>
                                             </td>
                                             <td>
-                                                <form class="form" action="#" method="POST">
-                                                    <select class="action-box">
-                                                        <option>Actions</option>
-                                                        <option>Start project</option>
-                                                        <option>Send for QA</option>
-                                                        <option>Send invoice</option>
-                                                    </select>
-                                                      
-                                                </form>
+                                                
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Open PDF
+                                                  </button>
                                             </td>
                                         </tr>
                                         <!-- <tr class="danger-item">

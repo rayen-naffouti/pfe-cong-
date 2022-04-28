@@ -1,6 +1,6 @@
 <div class="main-container">    <!-- START: Main Container -->
             
-    <div class="page-header">
+    <!-- <div class="page-header">
         <h1>Data Tables <small>Bootstrap Data Table</small></h1>
         <ol class="breadcrumb">
             <li><a href="">Home</a></li>
@@ -8,10 +8,149 @@
             <li class="active">Data Table</li>
         </ol>
     </div>
-    
+     -->
     <div class="content-wrap">  <!--START: Content Wrap-->
-        
+        <div class="col-md-2">
+                <div class="panel-body">
+                    <img class="img-profile" src="../assets/demo/users/img-user-01.jpg">
+                    <h4 class="user-name">{{ persabs[0].PERS_NOM  }} {{persabs[0].PERS_PRENOM }}</h4>
+                </div>
+        </div>
+            
+            <div class="col-md-10">
+                        
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>About :</h4>
+                        
+                        <form class="form-horizontal basic-info">
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">First Name</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">{{ persabs[0].PERS_NOM  }} </p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Last Name</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">{{persabs[0].PERS_PRENOM }}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Location</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">London</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Languages</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">Telugu · Tamil · English</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Gender</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">Male</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Date of birth</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">31 March</p>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-7">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h3>Ajouter un signataire</h3>
+                                    <div class="col-sm-10">
+                                      <div class="form-group">
+                                        <select class="selectpicker form-control" data-live-search="true"  #task>
+                                            <option data-tokens="0">rayen@gmail.com</option>
+                                            <option data-tokens="1">test@gmail.com</option>
+                                            <option data-tokens="2">test2@gmail.com</option>
+                                            <option data-tokens="3">test3@gmail.com</option> 
+                                          </select>
+                                        
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button style="margin-top: 4px;" (click)="addTask(task.value)"><i class="fa fa-location-arrow"></i></button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                <!-- <div class="form-group">
+                                    <select class="selectpicker form-control" data-live-search="true"  #task>
+                                        <option data-tokens="0">rayen@gmail.com</option>
+                                        <option data-tokens="1">test@gmail.com</option>
+                                        <option data-tokens="2">test2@gmail.com</option>
+                                        <option data-tokens="3">test3@gmail.com</option>
+                                      </select>
+                                      <button (click)="addTask(task.value)"><i class="fa fa-location-arrow"></i></button>
+                                </div> -->
+                               
+            
+                                
+            
+                                <ul *ngFor="let item of list">
+                                    <button style="margin-right: 10px;" (click)="removeTask(item.id)"><i class="fa fa-close"></i></button>{{item.name}} 
+                                </ul> 
+
+                                <button style="margin-top: 4px;" (click)="chekTask()">Done</button>
+
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <ul class="list-flow-info">
+                                    <li class="col-xs-4 text-primary">
+                                        <h3>Followers</h3>
+                                        <h4>2753</h4>
+                                    </li>
+                                    <li class="col-xs-4 text-info">
+                                        <h3>Posts</h3>
+                                        <h4>381</h4>
+                                    </li>
+                                    <li class="col-xs-4 text-success">
+                                        <h3>Following</h3>
+                                        <h4>1946</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
         <div class="row">
+           
             
             
             <div class="col-md-12">

@@ -16,19 +16,17 @@
             
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <!-- <div class="panel-heading">
                         <h3 class="panel-title">Panel title</h3>
                         <div class="tools">
                             <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
                             <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>	                                
                         </div>
-                    </div>
+                    </div> -->
                     
                     <div class="panel-body">
-                    <a href="" class="btn btn-success btn-sm" title="Add New Contact">
-        <i class="fa fa-plus" aria-hidden="true"></i> Add New
-        </a>
-                        <table class="table table-bordered table-dataTable"
+                  
+                        <!-- <table class="table table-bordered table-dataTable"
                         data-toggle="table"
 data-search="true"
 data-search-align="left"
@@ -80,7 +78,66 @@ data-page-list="[10,20,30,0,50,All]"
        
        
     
-                        </table>
+                        </table> -->
+                        <div class="projects mb-4">
+                            <div class="projects-inner">
+                                <header class="projects-header">
+                                    <div class="title">liste demande congé</div>
+                                    <div class="count">| 30 Congé</div>
+                                    <i class="zmdi zmdi-download"></i>
+                                </header>
+                                
+                                <table class="projects-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Conge</th>
+                                            <th>Debut</th>
+                                            <th>End</th>
+                                            <th>Owner</th>
+                                            <th>Solde</th>
+                                            <th>Status</th>
+                                            <th class="text-right">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tr *ngFor="let pers of personnels ; let i = index; ">
+                                        <td>
+                                            <p>{{ pers.PERS_MAT_95 }}</p>
+                                            <p>{{pers.PERS_MAT_ACT}} </p>
+                                        </td>
+                                        <td class="member">
+                                            <figure><img src="{{userimagepath}}{{pers.image}}" /></figure>
+                                            <div class="member-info">
+                                                <p>{{ pers.PERS_NOM}} {{ pers.PERS_PRENOM}}</p>
+                                                <p>{{ pers.NATAG_LIB_X50}}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p>{{pers.email}}</p>
+                                            <p></p>
+                                        </td>
+                                        <td>
+                                            <p>{{ pers.PERS_DATE_NAIS }}</p>
+                                        </td>
+                                        
+                                        <td>
+                                            <p>$4,670</p>
+                                            <p>Paid</p>
+                                        </td>
+                                        <td class="status">
+                                            <span class="status-text status-orange">Progress</span>
+                                        </td>
+                                        <td>
+                                                <!-- Button trigger modal -->
+                                                <a routerLink="/personnels/{{ pers.PERS_MAT_95 }}" title="View "><button class="btn btn-info btn-sm"> Absence ({{ count[i] }})</button></a> 
+                                                <!-- <a style="margin-left: 10px;" href="" title="Edit "><button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button></a> -->
+                                           
+                                        </td>
+                                    </tr>
+                                
+                                
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

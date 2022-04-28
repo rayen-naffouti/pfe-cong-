@@ -11,6 +11,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
+import { DemandesComponent } from './components/demandes/demandes.component';
+import { ListedemandeComponent } from './components/listedemande/listedemande.component';
+import { AlldemandesComponent } from './components/alldemandes/alldemandes.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer'
 
 const appRoutes: Routes = [
 
@@ -33,6 +40,20 @@ const appRoutes: Routes = [
   
   { path : 'conge', component: CongeComponent,
     canActivate: [AuthGuard]
+  },
+
+  { path : 'add_leave', component: DemandesComponent,
+    canActivate: [AuthGuard]
+  },
+
+  // Admin
+  { path : 'my_leaves', component: AlldemandesComponent,
+    canActivate: [AuthGuard]
+  },
+
+  // User
+  { path : 'all_leaves', component: ListedemandeComponent,
+    canActivate: [AuthGuard]
   } 
 
 ]
@@ -45,7 +66,10 @@ const appRoutes: Routes = [
     NavbarComponent,
     CongeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DemandesComponent,
+    ListedemandeComponent,
+    AlldemandesComponent
     
   ],
   imports: [
@@ -54,7 +78,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NoopAnimationsModule,
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

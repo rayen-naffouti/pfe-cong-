@@ -92,12 +92,13 @@
                     <li class="has-submenu">
                         <a href="#submenuTwo" data-toggle="collapse" aria-expanded="false">
                             <i class="ti-calendar"></i> 
-                            <span class="nav-text">congé</span>
+                            <span class="nav-text">Leave</span>
                         </a>
                         <div class="sub-menu collapse secondary" id="submenuTwo">
                             <ul>
-                                <li><a routerLink="/conge"> <i class="fs-list-3" style="margin-right: 3px;"></i> congé list</a></li>
-                                <li><a href="#"> <i class=" fs-plus-circle" style="margin-right: 3px;"></i> add congé</a></li>
+                                <li><a routerLink="/conge"> <i class="fs-list-3" style="margin-right: 3px;"></i> Leave list</a></li>
+                                <li><a routerLink="/add_leave"> <i class=" fs-plus-circle" style="margin-right: 3px;"></i> add Leave request</a></li>
+                                <li><a routerLink="/my_leaves"> <i class="fs-list-3" style="margin-right: 3px;"></i> Leave request list</a></li>
                             </ul>
                         </div>
                     </li>
@@ -114,6 +115,9 @@
                             <a routerLink="/personnels"><i class="fs-users"></i> <span class="nav-text">Personnels</span></a>
                         </li>
                     
+                        <li>
+                            <a routerLink="/all_leaves"><i class="ti-calendar"></i> <span class="nav-text">All leaves</span></a>
+                        </li>
                     </ul>
                     
                 </ul>

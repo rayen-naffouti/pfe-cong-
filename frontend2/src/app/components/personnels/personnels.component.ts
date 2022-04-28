@@ -9,6 +9,7 @@ import { PersonnelService } from 'src/app/service/personnel.service';
 export class PersonnelsComponent implements OnInit {
   personnels:any;
 count:any;
+userimagepath:any = 'http://127.0.0.1:8000/image/';
 
   constructor(private personnelService: PersonnelService) { }
 
