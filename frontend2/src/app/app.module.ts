@@ -15,9 +15,11 @@ import { DemandesComponent } from './components/demandes/demandes.component';
 import { ListedemandeComponent } from './components/listedemande/listedemande.component';
 import { AlldemandesComponent } from './components/alldemandes/alldemandes.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer'
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 const appRoutes: Routes = [
 
@@ -80,8 +82,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     NoopAnimationsModule,
-    NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -69,7 +69,7 @@ class DemandeController extends Controller
         $demandeconge->tel = $request['tel'];
         $demandeconge->nbrjour = $request['nbrjour'];
         $demandeconge->pdf = $request->input('pdf', $filename);
-        // $demandeconge->save();
+        $demandeconge->save();
 
         // if($demandeconge->save()){
         //     Demandeconge::sendDemandeconge($demandeconge, $pdf);

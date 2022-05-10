@@ -75,7 +75,7 @@ export class DemandesComponent implements OnInit {
     console.log(this.form.getRawValue())
   this.http.post('http://localhost:8000/api/demande',this.form.getRawValue())
          .subscribe();
-  // this.router.navigate(['/my_leaves'])
+   this.router.navigate(['/my_leaves'])
   }
 
 }
