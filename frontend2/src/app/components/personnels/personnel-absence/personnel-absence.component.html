@@ -12,7 +12,7 @@
     <div class="content-wrap">  <!--START: Content Wrap-->
         <div class="col-md-2">
                 <div class="panel-body">
-                    <img class="img-profile" src="../assets/demo/users/img-user-01.jpg">
+                    <img class="img-profile" src="{{userimagepath}}{{persabs[0].image}}">
                     <!-- <h4 class="user-name">{{ persabs[0].PERS_NOM  }} {{persabs[0].PERS_PRENOM }}</h4> -->
                 </div>
         </div>
@@ -25,52 +25,45 @@
                         
                         <form class="form-horizontal basic-info">
                             
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 0px;">
                                 <label class="col-sm-3 control-label">First Name</label>
                                 <div class="col-sm-9">
-                                    <!-- <p class="form-control-static">{{ persabs[0].PERS_NOM  }} </p> -->
+                                    <p class="form-control-static">{{ persabs[0].PERS_NOM  }} </p>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 0px;">
                                 <label class="col-sm-3 control-label">Last Name</label>
                                 <div class="col-sm-9">
-                                    <!-- <p class="form-control-static">{{persabs[0].PERS_PRENOM }}</p> -->
+                                    <p class="form-control-static">{{persabs[0].PERS_PRENOM }}</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0px;">
+                                <label class="col-sm-3 control-label">Nature Agent</label>
+                                <div class="col-sm-9">
+                                    <p class="form-control-static">{{persabs[0].NATAG_LIB_X50}}</p>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 0px;">
                                 <label class="col-sm-3 control-label">Email</label>
                                 <div class="col-sm-9">
-                                    <p class="form-control-static">email@example.com</p>
+                                    <p class="form-control-static">{{persabs[0].email}}</p>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Location</label>
+                            <div class="form-group" style="margin-bottom: 0px;">
+                                <label class="col-sm-3 control-label">Telephone</label>
                                 <div class="col-sm-9">
-                                    <p class="form-control-static">London</p>
+                                    <p class="form-control-static">{{persabs[0].PERS_TEL_98 }}</p>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Languages</label>
-                                <div class="col-sm-9">
-                                    <p class="form-control-static">Telugu · Tamil · English</p>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Gender</label>
-                                <div class="col-sm-9">
-                                    <p class="form-control-static">Male</p>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 0px;">
                                 <label class="col-sm-3 control-label">Date of birth</label>
                                 <div class="col-sm-9">
-                                    <p class="form-control-static">31 March</p>
+                                    <p class="form-control-static">{{persabs[0].PERS_DATE_NAIS }}</p>
                                 </div>
                             </div>
                             
@@ -85,7 +78,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3>Ajouter un signataire</h3>
-                                    <div class="col-sm-10">
+                                    <!-- <div class="col-sm-10">
                                       <div class="form-group">
                                         <select  data-live-search="true"  #task>
                                             <option data-tokens="0">rayen@gmail.com</option>
@@ -98,10 +91,10 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <button style="margin-top: 4px;" (click)="addTask(task.value)"><i class="fa fa-location-arrow"></i></button>
-                                    </div>
+                                    </div> -->
+                                    <!-- <br>
                                     <br>
-                                    <br>
-                                    <br>
+                                    <br> -->
 
                                     <!-- <mat-form-field>
                                         <mat-select  placeholder="Bank" >

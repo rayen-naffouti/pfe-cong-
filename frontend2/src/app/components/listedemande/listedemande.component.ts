@@ -10,6 +10,7 @@ import { CongeService } from 'src/app/service/conge.service';
 export class ListedemandeComponent implements OnInit {
   userimagepath:any = 'http://127.0.0.1:8000/image/';
   conges:any;
+  count:any;
   
   constructor(private congeService: CongeService) { }
   
@@ -23,6 +24,7 @@ export class ListedemandeComponent implements OnInit {
     this.congeService.getdemandes().subscribe(res =>{
        console.log(res);
       this.conges = res;
+      this.count =  this.conges.length;
     })
   }
 

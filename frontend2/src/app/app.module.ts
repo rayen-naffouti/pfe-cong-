@@ -50,7 +50,9 @@ const appRoutes: Routes = [
 
   // Admin
   { path : 'my_leaves', component: AlldemandesComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],children:[
+      // { path: 'groupuser', component: GroupuserComponent }
+    ]
   },
 
   // User

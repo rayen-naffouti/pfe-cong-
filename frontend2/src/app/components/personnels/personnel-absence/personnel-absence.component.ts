@@ -11,6 +11,7 @@ import { SignataireService } from 'src/app/service/signataire.service';
 })
 export class PersonnelAbsenceComponent implements OnInit {
   PERS_MAT_95=this.route.snapshot.params['PERS_MAT_95'];
+  userimagepath:any = 'http://127.0.0.1:8000/image/';
   persabs : any ;
   user:any;
   signs:any;
@@ -57,15 +58,14 @@ export class PersonnelAbsenceComponent implements OnInit {
   
   getPersonnelData(){
     this.personnelService.getData().subscribe(res =>{
-       
       this.personnels = res;
-      //  console.log(this.personnels);
+       console.log(this.personnels);
        })
   }
 
   getPersonnelabsence(){
     this.personnelService.getabsence(this.PERS_MAT_95).subscribe(res =>{
-        // console.log(res);
+        console.log(res);
        this.persabs = res;
        })
   }

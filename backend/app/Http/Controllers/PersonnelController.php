@@ -59,7 +59,9 @@ class PersonnelController extends Controller
         // return view('Personnel.show')->with('personnels', $personnels);
         $personnels=Personnel::
             join('absences','personnels.PERS_MAT_95','ABS_NUMORD_93')
+            ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
             ->join('natabses','absences.ABS_NAT_9','natabses.CODE_ABS')
+            ->join('users','personnels.PERS_MAT_95','users.id')
             ->where('personnels.PERS_MAT_95',$PERS_MAT_95)
             ->get() ;
                 // $count =  $personnels->count();

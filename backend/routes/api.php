@@ -9,6 +9,7 @@ use App\Http\Controllers\StatsController;
 use App\Http\Controllers\CongeController;  
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\SigniataireController;
+use App\Http\Controllers\NgsignServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::get('demande/{PERS_MAT_95}',[DemandeController::class,'persdemande']);
 
 Route::get('signataire/{PERS_MAT_95}',[SigniataireController::class,'perssign']);
 Route::post('addsignataire',[SigniataireController::class,'addsign']);
+
+
+Route::get('/ngsign',[NgsignServiceController::class,'fetch']);

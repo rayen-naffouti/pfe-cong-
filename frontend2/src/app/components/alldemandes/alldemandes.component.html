@@ -77,13 +77,16 @@
                                                         <div class="modal-content">
                                                             
                                                             <div class="model-body"> 
-                                                                 <!-- <object data="http://127.0.0.1:8000/storage/storage/-1503598379_1651184576.pdf" width="100%" height="600px" type='application/pdf'>
+                                                                  <!-- <object data="http://127.0.0.1:8000/storage/storage/-1503598379_1651184576.pdf" width="100%" height="600px" type='application/pdf'>
                                 
-                                                                 </object>     -->
-                                                                 <ngx-extended-pdf-viewer [src]="src" [useBrowserLocale]="false"></ngx-extended-pdf-viewer>
-                                                                 
+                                                                 </object> -->
+                                                                 <!-- <ngx-extended-pdf-viewer [src]="" [useBrowserLocale]="false"></ngx-extended-pdf-viewer> -->
+                                                                 <a href='{{src}}{{cong.pdf}}' type="image/gif">here</a>
+                                                                 <!-- <object data="/assets/assets/basic.pdf" width="100%" height="600px" type='application/pdf'>
+                
+                                                                </object> -->
                                                                   <!-- <pdf-viewer
-                                                                  [src]="src"
+                                                                  [src]="'{{src}}{{cong.pdf}}'"
                                                                 ></pdf-viewer> -->
                                                             </div>
                                                             <div class="model-footer">

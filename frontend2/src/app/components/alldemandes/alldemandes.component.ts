@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class AlldemandesComponent implements OnInit {
   userimagepath:any = 'http://127.0.0.1:8000/image/';
-  src = 'http://127.0.0.1:8000/storage/storage/-1316646098_1651186224.pdf';
+  src = 'http://127.0.0.1:8000/storage/storage/';
   conges:any;
   count:any;
   user:any;

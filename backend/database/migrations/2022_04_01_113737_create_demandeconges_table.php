@@ -36,6 +36,8 @@ return new class extends Migration
             $table->integer('tel')->nullable();
             $table->integer('nbrjour')->nullable();
             $table->string('pdf',250)->nullable();
+            $table->string('uuid',250)->nullable();
+            $table->string('pdfuid',250)->nullable();
             $table->timestamps();
         });
     }
