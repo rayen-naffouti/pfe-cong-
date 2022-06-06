@@ -19,7 +19,15 @@ class DemandeController extends Controller
          ->join('nature_conges','demandeconges.natureconge','nature_conges.CODE')
          ->join('users','demandeconges.PERS_ID','users.id')
          ->get();
-         return response()->json($Demandeconge,200);
+
+         $json = array();
+         foreach($Demandeconge as $demande){
+             $json[]=['demande'=>$demande,"ngsign"=>$demande->ngsign];
+         }
+        //  json_encode($json);
+            return ($json);
+
+        //  return response()->json($Demandeconge,200);
     }
 
     public function persdemande($PERS_MAT_95)
@@ -31,7 +39,16 @@ class DemandeController extends Controller
             ->join('nature_conges','demandeconges.natureconge','nature_conges.CODE')
             ->where('demandeconges.PERS_ID',$PERS_MAT_95)
             ->get();
-         return ($Demandeconge);
+
+
+        
+            $json = array();
+            foreach($Demandeconge as $demande){
+                $json[]=['demande'=>$demande,"ngsign"=>$demande->ngsign];
+            }
+           //  json_encode($json);
+               return ($json);
+        //  return ($Demandeconge);
     }
 
 

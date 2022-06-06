@@ -41,36 +41,80 @@
                                                 <th>Owner</th>
                                                 <th>Budget</th>
                                                 <th>Status</th>
-                                                <th class="text-center">Actions</th>
+                                                <th>Signers</th>
+                                                <th>PDF</th>
                                             </tr>
                                         </thead>
-                                        <tr *ngFor="let cong of conges ">
+                                        <tr *ngFor="let cong of conges ; let i = index;">
                                             <td>
-                                                <p>{{cong.NOM}}</p>
-                                                <p>{{cong.nbrjour}} Days</p>
+                                                <p>{{cong.demande.NOM}}</p>
+                                                <p>{{cong.demande.nbrjour}} Days</p>
                                             </td>
                                             <td>
-                                                <p>{{cong.debut}}</p>
-                                                <p class="text-danger">{{cong.debutX}}M</p>
+                                                <p>{{cong.demande.debut}}</p>
+                                                <p class="text-danger">{{cong.demande.debutX}}M</p>
                                             </td>
                                             <td>
-                                                <p>{{cong.fin}}</p>
-                                                <p class="text-danger">{{cong.finx}}M</p>
+                                                <p>{{cong.demande.fin}}</p>
+                                                <p class="text-danger">{{cong.demande.finx}}M</p>
                                             </td>
                                             <td class="member">
                                                 <figure><img src="{{userimagepath}}{{user.image}}" /></figure>
                                                 <div class="member-info">
-                                                    <p>{{ cong.PERS_NOM}} {{ cong.PERS_PRENOM}}</p>
-                                                    <p>{{ cong.NATAG_LIB_X50}}</p>
+                                                    <p>{{ cong.demande.PERS_NOM}} {{ cong.demande.PERS_PRENOM}}</p>
+                                                    <p>{{ cong.demande.NATAG_LIB_X50}}</p>
                                                 </div>
                                             </td>
                                             <td>
                                                 <p>$4,670</p>
                                                 <p>Paid</p>
                                             </td>
-                                            <td class="status">
-                                                <span class="status-text status-orange">Progress</span>
+
+                                            <td class="status" *ngIf="cong.ngsign.object.status=='CREATED'">
+                                                <span class="status-text status-blue">{{ cong.ngsign.object.status}}</span>
                                             </td>
+
+                                            <td class="status" *ngIf="cong.ngsign.object.status=='CONFIGURED'">
+                                                <span class="status-text status-orange">{{ cong.ngsign.object.status}}</span>
+                                            </td>
+
+                                            <td class="status" *ngIf="cong.ngsign.object.status=='REFUSED'">
+                                                <span class="status-text status-red">{{ cong.ngsign.object.status}}</span>
+                                            </td>
+
+                                            <td class="status" *ngIf="cong.ngsign.object.status=='SIGNED'">
+                                                <span class="status-text status-green">{{ cong.ngsign.object.status}}</span>
+                                            </td>
+
+                                            <td>
+                                                 <div class="timelines">
+  
+                                                    <div class="timeline education">
+                                                        
+                                                            <p *ngIf="cong.ngsign.object.status=='CREATED'"><span style="background-color: #1c93ed;" class="label label-warning">NO SIGNERS</span></p>
+                                                        
+                                                      <div class="timeline-items" *ngFor="let liste of list[i] ">
+
+                                                         
+
+                                                        <div class="timeline-item1" *ngIf="liste.status=='CONFIGURED'">
+                                                            <p>{{liste.signer.email}} <span class="label label-warning">{{liste.status}}</span></p>
+                                                        </div>
+
+                                                        <div class="timeline-item2" *ngIf="liste.status=='REFUSED'"> 
+                                                            <p>{{liste.signer.email}} <span class="label label-danger">{{liste.status}}</span></p>
+                                                        </div>
+
+                                                        <div class="timeline-item2" *ngIf="liste.status=='SIGNED'">
+                                                            <p>{{liste.signer.email}} <span class="label label-success">{{liste.status}}</span></p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                   
+                                                    
+                                                </div> 
+                                            </td>
+
                                             <td>
                                                  <div class="modal fade" id="myModal">
                                                     <div class="modal-dialog">
@@ -95,18 +139,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="#" data-toggle="modal" data-target="#myModal"> 
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <a href="#" data-toggle="modal" data-target="#myModal">     
+                                                    <button type="button" id="myFrame" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onload="getmydemandesngsign(uuid)">
                                                         Open PDF
                                                     </button></a>
-                                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px; background-color: #66b92e; border-color: #66b92e;">
-                                                        Modify PDF
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px; background-color: #da932c; border-color: #da932c;">
-                                                        Modify PDF
-                                                    </button>  -->
+                                                   
                                                    
                                             </td>
+                                            
+                                            
                                         </tr>
                                     
                                     </table>

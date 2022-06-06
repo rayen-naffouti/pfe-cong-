@@ -1,78 +1,82 @@
+<div class="main-container">
+    <!-- START: Main Container -->
 
-        <div class="main-container">    <!-- START: Main Container -->
-            
-            <div class="page-header">
-                <h1>List Congé</h1>
-                <ol class="breadcrumb">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="index.php">Forms</a></li>
-                    <li class="active">Validation</li>
-                </ol>
-            </div>
-            
-            <div class="content-wrap">  <!--START: Content Wrap-->
-                
-                
-                <div class="container-fluid">
-                    <div class="row">
-                      
-                        <main role="main" class="col-md-12">
-                            <div class="panel">
-                                
-                            <div class="projects mb-4">
-                                <div class="projects-inner">
-                                    <header class="projects-header">
-                                        <div class="title">{{user.name}} congé</div>
-                                        <div class="count">| {{count}} Congé</div>
-                                        <i class="zmdi zmdi-download"></i>
-                                    </header>
-                                    <table class="projects-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Conge</th>
-                                                <th>Debut</th>
-                                                <th>End</th>
-                                                <th>Owner</th>
-                                                <th>Budget</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tr *ngFor="let cong of conge ">
-                                            <td>
-                                                <p>{{cong.NOM}}</p>
-                                                <p>{{cong.CONG_NBRJOUR_93}} Days</p>
-                                            </td>
-                                            <td>
-                                                <p>{{cong.CONG_DATE_DEB}}</p>
-                                                <p class="text-danger">{{cong.CONG_PERDEB_X}}M</p>
-                                            </td>
-                                            <td>
-                                                <p>{{cong.CONG_DATE_FIN}}</p>
-                                                <p class="text-danger">{{cong.CONG_PERFIN_X}}M</p>
-                                            </td>
-                                            <td class="member">
-                                                <figure><img src="{{userimagepath}}{{user.image}}" /></figure>
-                                                <div class="member-info">
-                                                    <p>{{ cong.PERS_NOM}} {{ cong.PERS_PRENOM}}</p>
-                                                    <p>{{ cong.NATAG_LIB_X50}}</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p>$4,670</p>
-                                                <p>Paid</p>
-                                            </td>
-                                            <td class="status">
-                                                <span class="status-text status-green">Approved</span>
-                                            </td>
-                                            <td>
-                                                
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Open PDF
-                                                  </button>
-                                            </td>
+    <div class="page-header">
+        <h1>List Congé</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php">Forms</a></li>
+            <li class="active">Validation</li>
+        </ol>
+    </div>
+
+    <div class="content-wrap">
+        <!--START: Content Wrap-->
+
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <main role="main" class="col-md-12">
+                    <div class="panel">
+
+                        <div class="projects mb-4">
+                            <div class="projects-inner">
+                                <header class="projects-header">
+                                    <div class="title">{{user.name}} congé</div>
+                                    <div class="count">| {{count}} Congé</div>
+                                    <i class="zmdi zmdi-download"></i>
+                                </header>
+                                <table class="projects-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Conge</th>
+                                            <th>Debut</th>
+                                            <th>End</th>
+                                            <th>Owner</th>
+                                            <th>Budget</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
                                         </tr>
-                                        <!-- <tr class="danger-item">
+                                    </thead>
+                                    <tr *ngFor="let cong of conge ">
+                                        <td>
+                                            <p>{{cong.NOM}}</p>
+                                            <p>{{cong.CONG_NBRJOUR_93}} Days</p>
+                                        </td>
+                                        <td>
+                                            <p>{{cong.CONG_DATE_DEB}}</p>
+                                            <p class="text-danger">{{cong.CONG_PERDEB_X}}M</p>
+                                        </td>
+                                        <td>
+                                            <p>{{cong.CONG_DATE_FIN}}</p>
+                                            <p class="text-danger">{{cong.CONG_PERFIN_X}}M</p>
+                                        </td>
+                                        <td class="member">
+                                            <figure><img src="{{userimagepath}}{{user.image}}" /></figure>
+                                            <div class="member-info">
+                                                <p>{{ cong.PERS_NOM}} {{ cong.PERS_PRENOM}}</p>
+                                                <p>{{ cong.NATAG_LIB_X50}}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p>$4,670</p>
+                                            <p>Paid</p>
+                                        </td>
+                                        <td class="status">
+                                            <span class="status-text status-green">Approved</span>
+                                        </td>
+                                        <td>
+
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                <a style="color: white;"
+                                                    href="http://127.0.0.1:8000/api/ngsign/5914fb69-ee9c-406d-ab33-5bab15fb67dd/pdf/24d89cd6-d003-42b0-a369-eba33b619c42">Open
+                                                    PDF</a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr class="danger-item">
                                             <td>
                                                 <p>New Dashboard</p>
                                                 <p>Google</p>
@@ -175,16 +179,16 @@
                                                 </form>
                                             </td>
                                         </tr> -->
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
-                        </main>
                     </div>
-                </div>
-                    
-                
-            </div>  <!--END: Content Wrap-->
-            
-        </div>  <!-- END: Main Container -->
-        
+                </main>
+            </div>
+        </div>
+
+
+    </div>
+    <!--END: Content Wrap-->
+
+</div> <!-- END: Main Container -->

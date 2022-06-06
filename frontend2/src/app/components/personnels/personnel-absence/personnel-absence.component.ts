@@ -45,27 +45,27 @@ export class PersonnelAbsenceComponent implements OnInit {
   }
   chekTask()
   {
-    console.log(this.list)
+    // console.log(this.list)
     this.signataireService.addsignataire(this.list);
   }
   getPersonnelSign(){
     this.signataireService.getsignataire(this.PERS_MAT_95).subscribe(res =>{
        
       this.list = res;
-       console.log(this.list);
+      //  console.log(this.list);
        })
   }
   
   getPersonnelData(){
     this.personnelService.getData().subscribe(res =>{
       this.personnels = res;
-       console.log(this.personnels);
+      //  console.log(this.personnels);
        })
   }
 
   getPersonnelabsence(){
     this.personnelService.getabsence(this.PERS_MAT_95).subscribe(res =>{
-        console.log(res);
+        // console.log(res);
        this.persabs = res;
        })
   }
