@@ -60,17 +60,17 @@
                     <div class="blue-line sm normal"></div>
                     
                     <div class="signup-box">
-                        <div class="logo"><img src="/../assets/assets/images/logo-c.svg" alt="" style="height: 40px;"></div>
+                        <div class="logo"><img src="assets/assets/images/logo.png" style="width: 30px;"></div>
                         
                         <form [formGroup]="form" (submit)="submit()">
                             
                             <div class="form-group">
-                                <input formControlName="email" type="text" maxlength="30" name="useremail" class="form-control" placeholder="Useremail">
+                                <input formControlName="email" type="text" maxlength="30" name="useremail" class="form-control" placeholder="Useremail" required>
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </div>
                             
                             <div class="form-group">
-                                <input formControlName="password" type="password" name="password" class="form-control" placeholder="Password">
+                                <input formControlName="password" type="password" name="password" class="form-control" placeholder="Password" required>
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                 <div class="forgot"><a href="user-forgotpassword.php">Forgot?</a></div>
                             </div>
