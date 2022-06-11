@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormControl,  Validator } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
   }
 
@@ -34,6 +37,20 @@ export class RegisterComponent implements OnInit {
       PERS_NATURAGENT_93: ''
 
     });
+    // this.form = new FormGroup({
+    //   // email: new FormControl('',[Validators.required,Validators.email]),
+    //   // password: new FormControl('',Validators.required)
+    //   name: new FormControl('',Validators.required),
+    //   email: new FormControl('',Validators.required),
+    //   password: new FormControl('',Validators.required),
+    //   image: new FormControl([null],Validators.required),
+    //   PERS_MAT_ACT: new FormControl('',Validators.required),
+    //   PERS_NOM: new FormControl('',Validators.required),
+    //   PERS_PRENOM: new FormControl('',Validators.required),
+    //   PERS_DATE_NAIS: new FormControl('',Validators.required),
+    //   PERS_SEX_X: new FormControl('',Validators.required),
+    //   PERS_NATURAGENT_93: new FormControl('',Validators.required)
+    // })
   
 }
 get f(){
@@ -59,8 +76,11 @@ uploadImage(event) {
     formData.append("password",this.form.controls['password'].value);
     // console.log(formData)
      this.http.post('http://localhost:8000/api/register',formData)
-         .subscribe(() => this.router.navigate(['/dashboard']));
-    
+         .subscribe(() => {
+         this.router.navigate(['/dashboard'])
+         this.toastr.success('User added successfully');
+        });
+         
   }
 
 }

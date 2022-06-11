@@ -116,35 +116,34 @@
                                             </td>
 
                                             <td>
-                                                 <div class="modal fade" id="myModal">
+                                                 <!-- <div class="modal fade" id="myModal">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             
                                                             <div class="model-body"> 
-                                                                  <!-- <object data="http://127.0.0.1:8000/storage/storage/-1503598379_1651184576.pdf" width="100%" height="600px" type='application/pdf'>
-                                
-                                                                 </object> -->
-                                                                 <!-- <ngx-extended-pdf-viewer [src]="" [useBrowserLocale]="false"></ngx-extended-pdf-viewer> -->
+                                                                  
                                                                  <a href='{{src}}{{cong.pdf}}' type="image/gif">here</a>
-                                                                 <!-- <object data="/assets/assets/basic.pdf" width="100%" height="600px" type='application/pdf'>
-                
-                                                                </object> -->
-                                                                  <!-- <pdf-viewer
-                                                                  [src]="'{{src}}{{cong.pdf}}'"
-                                                                ></pdf-viewer> -->
+                                                                 
                                                             </div>
                                                             <div class="model-footer">
                                                                 <input class="btn btn-default" data-dismiss="modal" value="Close">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <a href="#" data-toggle="modal" data-target="#myModal">     
-                                                    <button type="button" id="myFrame" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onload="getmydemandesngsign(uuid)">
+                                                </div> -->
+                                                <!-- <a href="#" data-toggle="modal" data-target="#myModal">     
+                                                    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                                         Open PDF
-                                                    </button></a>
-                                                   
-                                                   
+                                                    </button></a> -->
+                                                    <a href="http://127.0.0.1:8000/api/ngsign/{{ cong.ngsign.object.uuid}}/pdf/{{ cong.ngsign.object.pdfs[0].identifier}}" style="color: white;">
+                                                        <button type="button" id="myFrame" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onload="getmydemandesngsign(uuid)">
+                                                            Open PDF
+                                                        </button>
+                                                    </a>
+                                                    
+                                                    <button *ngIf="cong.ngsign.object.status=='CREATED'" type="button" id="myFrame" class="btn btn-primary" style="margin-left: 5px;">
+                                                        <i class="di di-controls-forward"></i>
+                                                    </button>
                                             </td>
                                             
                                             

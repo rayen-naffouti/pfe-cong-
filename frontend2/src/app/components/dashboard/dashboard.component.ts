@@ -62,10 +62,10 @@ export class DashboardComponent implements OnInit {
     var chart2 = new Chart("chart2", {
       type: 'bar',
       data: {
-          labels: ['Red', 'Blue',  'Purple'],
+          labels: ['exceptionnel', 'recupertaion',  'annuelle'],
           datasets: [{
-              label: '# of Votes',
-              data: [12, 19,  2],
+              label: '# Solde',
+              data: [this.stats.exceptionnel, this.stats.recupertaion,  this.stats.annuelle],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',

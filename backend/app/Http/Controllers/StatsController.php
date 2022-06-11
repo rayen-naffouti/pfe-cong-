@@ -12,6 +12,33 @@ class StatsController extends Controller
 {
     public function index()
     {
+        $cconges=DB::table('cconges')->get();
+        $sumcc = count($cconges)/3;
+
+        $exceptionnel=DB::table('cconges')->where('cconges.CCONG_NAT_9','1')->get();
+        $recupertaion=DB::table('cconges')->where('cconges.CCONG_NAT_9','2')->get();
+        $annuelle=DB::table('cconges')->where('cconges.CCONG_NAT_9','3')->get();
+        
+        $excep=0;
+        $recupe=0;
+        $annue=0;
+        
+        for($i = 0;$i<$sumcc;$i++)
+        {
+            $excep += $exceptionnel[$i]->CCONG_DROIT_93;
+        }
+        $excep=$excep/$sumcc;
+        for($i = 0;$i<$sumcc;$i++)
+        {
+            $recupe += $recupertaion[$i]->CCONG_DROIT_93;
+        }
+        $recupe=$recupe/$sumcc;
+        for($i = 0;$i<$sumcc;$i++)
+        {
+            $annue += $annuelle[$i]->CCONG_DROIT_93;
+        }
+        $annue=$annue/$sumcc;
+        // dd($annue/$sumcc);
         
         $personnels=DB::table('personnels')->get();
         $homme=0;
@@ -51,7 +78,11 @@ class StatsController extends Controller
             'absence' => $absence,
             'absence2' => $absence2,
             'perabsence' => round($perabsence),
-            'perabsence2' => round($perabsence2)
+            'perabsence2' => round($perabsence2),
+            
+            'exceptionnel' => round($excep),
+            'recupertaion' => round($recupe),
+            'annuelle' => round($annue),
         ];
     return response()->json($json,200);
         // ->with('homme', $homme)

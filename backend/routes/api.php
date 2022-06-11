@@ -40,6 +40,7 @@ Route::get('personnels/{PERS_MAT_95}',[PersonnelController::class,'show']);
 
 Route::get('conge',[CongeController::class,'index']);
 Route::get('conge/{PERS_MAT_95}',[CongeController::class,'show']);
+Route::get('solde/{PERS_MAT_95}',[CongeController::class,'solde']);
 Route::post('conge',[CongeController::class,'store']);
 
 Route::post('demande',[DemandeController::class,'save']);

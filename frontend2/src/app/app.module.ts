@@ -21,6 +21,10 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' ,
@@ -87,7 +91,13 @@ const appRoutes: Routes = [
     PdfViewerModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

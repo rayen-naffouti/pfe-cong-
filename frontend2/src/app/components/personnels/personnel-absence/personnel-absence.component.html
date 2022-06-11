@@ -77,7 +77,7 @@
                     <div class="col-md-7">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h3>Ajouter un signataire</h3>
+                                <h3>Liste des signataire</h3>
                                     <!-- <div class="col-sm-10">
                                       <div class="form-group">
                                         <select  data-live-search="true"  #task>
@@ -106,14 +106,16 @@
                                           </mat-option>
                                         </mat-select>
                                       </mat-form-field> -->
-                                <div class="form-group">
-                                    <select class="selectpicker form-control" data-live-search="true"  #task>
-                                        <option data-tokens="0">rayen@gmail.com</option>
-                                        <option data-tokens="1">test@gmail.com</option>
-                                        <option data-tokens="2">test2@gmail.com</option>
-                                        <option data-tokens="3">test3@gmail.com</option>
-                                      </select>
-                                      <button (click)="addTask(task.value)"><i class="fa fa-location-arrow"></i></button>
+                                <div class="form-group"  >
+                                    <!-- <div class="col-md-12" > -->
+                                        <select class="selectpicker form-control" data-live-search="true"  #task>
+                                            <option data-tokens="0">rayen@gmail.com</option>
+                                            <option data-tokens="1">test@gmail.com</option>
+                                            <option data-tokens="2">test2@gmail.com</option>
+                                            <option data-tokens="3">test3@gmail.com</option>
+                                        </select>
+                                    <!-- </div> -->
+                                      <button *ngIf=" user.role == 'admin'"  (click)="addTask(task.value)"><i class="fa fa-location-arrow"></i></button>
                                 </div>
                                 <article class="leaderboard">
                                     <header>
@@ -129,13 +131,13 @@
                                       <article class="leaderboard__profile" *ngFor="let item of list">
                                          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Unknown_Member.jpg" class="leaderboard__picture">
                                         <span class="leaderboard__name">{{item.signataire_ID}}</span>
-                                        <span class="leaderboard__value"><span><button style="margin-right: 10px;" (click)="removeTask(item.order)"><i class="fa fa-close"></i></button></span></span> 
+                                        <span class="leaderboard__value"><span><button *ngIf=" user.role == 'admin'" style="margin-right: 10px;" (click)="removeTask(item.order)"><i class="fa fa-close"></i></button></span></span> 
                                       </article>
                                       
                                     </main>
                                   </article>
             
-                                  <button class="bubbly-button" (click)="chekTask()">Done</button>
+                                  <button *ngIf=" user.role == 'admin'" class="bubbly-button" (click)="chekTask()">Done</button>
             
                                 <!-- <ul *ngFor="let item of list">
                                     <button style="margin-right: 10px;" (click)="removeTask(item.order)"><i class="fa fa-close"></i></button>{{item.signataire_ID}} 
@@ -154,16 +156,16 @@
                             <div class="panel-body">
                                 <ul class="list-flow-info">
                                     <li class="col-xs-4 text-primary">
-                                        <h3>Followers</h3>
-                                        <h4>2753</h4>
+                                        <h3>{{ solde[0].NOM}}</h3>
+                                        <h4>{{ solde[0].CCONG_DROIT_93}} Days</h4>
                                     </li>
                                     <li class="col-xs-4 text-info">
-                                        <h3>Posts</h3>
-                                        <h4>381</h4>
+                                        <h3>{{ solde[1].NOM}}</h3>
+                                        <h4>{{ solde[1].CCONG_DROIT_93}} Days</h4>
                                     </li>
                                     <li class="col-xs-4 text-success">
-                                        <h3>Following</h3>
-                                        <h4>1946</h4>
+                                        <h3>{{ solde[2].NOM}}</h3>
+                                        <h4>{{ solde[2].CCONG_DROIT_93}} Days</h4>
                                     </li>
                                 </ul>
                             </div>

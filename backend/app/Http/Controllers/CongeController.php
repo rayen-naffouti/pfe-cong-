@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conge;
+use App\Models\Cconge;
 
 class CongeController extends Controller
 {
@@ -53,11 +54,24 @@ class CongeController extends Controller
      */
     public function show($PERS_MAT_95)
     {
-        $conge=Conge::
+        $conge=Cconge::
             join('personnels','personnels.PERS_MAT_95','conges.CONG_NUMORD_93')
             ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
             ->join('nature_conges','conges.CONG_NAT_9','nature_conges.CODE')
             ->where('conges.CONG_NUMORD_93',$PERS_MAT_95)
+            ->get() ;
+                // $count =  $personnels->count();
+                // dd($count);
+            return  $conge;
+    }
+
+    public function solde($PERS_MAT_95)
+    {
+        $conge=Cconge::
+            // join('personnels','personnels.PERS_MAT_95','conges.CONG_NUMORD_93')
+            // ->join('natureagents','personnels.PERS_NATURAGENT_93','natureagents.NATAG_CODE_93')
+            join('nature_conges','cconges.CCONG_NAT_9','nature_conges.CODE')
+            ->where('cconges.CCONG_MAT_95',$PERS_MAT_95)
             ->get() ;
                 // $count =  $personnels->count();
                 // dd($count);

@@ -8,6 +8,7 @@ use App\Models\user;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 use Illuminate\Support\Facades\Storage;
+use App\Service\NgSignService;
 
 class DemandeController extends Controller
 {
@@ -52,7 +53,7 @@ class DemandeController extends Controller
     }
 
 
-    public function save(Request $request){
+    public function save(Request $request,NgSignService $NgSignService ){
  
 
         $pdf = PDF::loadView('pdf',[
@@ -71,10 +72,79 @@ class DemandeController extends Controller
             'nbrjour' => $request->input('nbrjour'),
         ]);
 
+        
+
         $filename = '-'.rand() .'_'.time(). '.'.'pdf';
         
         Storage::put('public/storage/'.$filename,$pdf->output());
+
+        $base64 = base64_encode(file_get_contents(public_path('storage/storage/'.$filename)));
+
+        // $upload = $NgSignService->uploadPDF($base64);
+        
        
+        $upload = json_decode('{
+            "object": {
+                "uuid": "ddbd233b-cd6f-47b3-a888-aee5144bf553",
+                "puuid": null,
+                "creationDate": "2022-06-10T17:25:07.141+00:00",
+                "status": "CREATED",
+                "digestAlgo": null,
+                "signingTime": null,
+                "creator": {
+                    "email": "mohamed.ksibi@etap.com.tn",
+                    "firstName": "Mohamed",
+                    "lastName": "Ksibi",
+                    "phoneNumber": "55277036",
+                    "uuid": "bccf88cf-b88e-44a3-bd3d-b2c27bc591c0",
+                    "roles": [
+                        "USER"
+                    ],
+                    "status": "CREATED",
+                    "tokensNumber": 9,
+                    "orgTokensNumber": 0,
+                    "customEmails": false,
+                    "sigPreconfigured": true,
+                    "certificate": null,
+                    "digigoCertificate": null,
+                    "serialNumber": null,
+                    "certificateStatus": null,
+                    "manager": false,
+                    "invoice": false,
+                    "organizationName": null,
+                    "registrationDate": "2021-11-08T15:44:34.000+00:00",
+                    "jwt": null,
+                    "apiUser": true,
+                    "usingApi": false,
+                    "ngcertClient": false,
+                    "ngcertManager": false,
+                    "ngcertGuest": null,
+                    "ngcertUser": null,
+                    "completeName": "Mohamed Ksibi"
+                },
+                "nextSigner": null,
+                "parallelSignatures": false,
+                "byApi": true,
+                "lockDate": null,
+                "lockingSigner": null,
+                "signers": [],
+                "observers": [],
+                "pdfs": [
+                    {
+                        "size": 6685,
+                        "name": "Demande Conge",
+                        "extension": "pdf",
+                        "identifier": "88c174c5-80e5-40eb-894b-a88b15162819",
+                        "pdfA": false,
+                        "numberPages": 0
+                    }
+                ]
+            },
+            "message": null,
+            "errorCode": 0
+        }');
+
+        // return $upload;
         $demandeconge = new Demandeconge;
         $demandeconge->PERS_ID = $request['PERS_ID'];
         $demandeconge->natureconge = $request['natureconge'];
@@ -86,6 +156,10 @@ class DemandeController extends Controller
         $demandeconge->tel = $request['tel'];
         $demandeconge->nbrjour = $request['nbrjour'];
         $demandeconge->pdf = $request->input('pdf', $filename);
+
+        $demandeconge->uuid = $request->input('uuid', $upload->object->uuid);
+        $demandeconge->pdfuid = $request->input('pdfuid', $upload->object->pdfs[0]->identifier);
+
         $demandeconge->save();
 
         // if($demandeconge->save()){

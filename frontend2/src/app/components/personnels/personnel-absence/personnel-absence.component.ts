@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { AuthService } from 'src/app/service/auth.service';
+import { CongeService } from 'src/app/service/conge.service';
 import { PersonnelService } from 'src/app/service/personnel.service';
 import { SignataireService } from 'src/app/service/signataire.service';
 
@@ -17,17 +18,29 @@ export class PersonnelAbsenceComponent implements OnInit {
   signs:any;
   list:any;
   personnels:any;
+  solde:any;
 
   constructor
   (private route: ActivatedRoute ,
     private personnelService: PersonnelService ,
     private signataireService: SignataireService,
+    private congeService: CongeService,
     private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getPersonnelData();
     this.getPersonnelabsence();
     this.getPersonnelSign();
+    this.getUser();
+    this.getmysolde();
+  }
+  getmysolde(){
+    
+    this.congeService.getmysolde(this.PERS_MAT_95).subscribe(res =>{
+      this.solde = res;
+      //  console.log(this.solde);
+    })
+ 
   }
 
   addTask(item:string)
@@ -38,6 +51,13 @@ export class PersonnelAbsenceComponent implements OnInit {
         console.log(this.list)
       })
 
+  }
+
+  getUser(){
+    this.authService.getuser().subscribe(res => {
+      this.user = res;
+        // console.log(this.user)
+    })
   }
   removeTask(order:number)
   {

@@ -13,4 +13,7 @@ export class CongeService {
   getmydemandes(id:number){
     return this.httpClient.get('http://127.0.0.1:8000/api/demande' + '/' + id);
   }
+  getmysolde(id:number){
+    return this.httpClient.get('http://127.0.0.1:8000/api/solde' + '/' + id);
+  }
 }

@@ -53,29 +53,30 @@ class NgSignService
     }
 
 
-    public function uploadPDF(){
+    public function uploadPDF($pdf){
         
 
         $token = env('NGSIGN_TOKEN');
-        // dd($url);
+        //  dd($pdf);
 
-        $client = new \GuzzleHttp\Client(['verify' => false]);
-        $response = $client->request('POST', 'https://app.ng-sign.com.tn/server/protected/transaction/pdfs/', [
+        $client = new \GuzzleHttp\Client(['verify' => false,
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
-                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
              ]
-            ], 
-            [
-                'json' => [
-                    'fileName' => 'Demande Congé',
-                    'fileExtension' => 'fileExtension',
-                    'fileBase64' => ''
-                    ]
-            ]
+            ]);
+        $data = [
+            'body' => '['.json_encode([
+                'fileName' => 'Demande Conge',
+                'fileExtension' => 'pdf',
+                'fileBase64' => $pdf
+            ]).']'];
+
+            // dd($data);
+        $response = $client->request('POST', 'https://app.ng-sign.com.tn/server/protected/transaction/pdfs/',  $data
         
         );
-        $data = json_decode($response->getBody());
+        $data = json_decode($response->getBody()->getContents());
         // dd($response);
         return($data); 
        

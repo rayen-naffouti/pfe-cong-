@@ -62,6 +62,7 @@
                     <div class="signup-box">
                         <div class="logo"><img src="assets/assets/images/logo.png" style="width: 30px;"></div>
                         
+                        
                         <form [formGroup]="form" (submit)="submit()">
                             
                             <div class="form-group">
@@ -75,19 +76,23 @@
                                 <div class="forgot"><a href="user-forgotpassword.php">Forgot?</a></div>
                             </div>
                             
+                            <div class="alert alert-danger" role="alert" *ngIf="form.invalid && form.touched"> 
+                                <strong>Oh snap!</strong> credentials required
+                            </div>
+                            
                             <div class="checkbox checkbox-primary">
                                 <input id="rememberMe" class="styled" type="checkbox" checked>
                                 <label for="rememberMe"> Stay signed in</label>
                             </div>
                             
-                            <button href="#" type="submit" class="btn btn-primary btn-block">Connect</button>
+                            <button [disabled]="form.invalid" href="#" type="submit" class="btn btn-primary btn-block">Connect</button>
                         </form>
                     </div>
                     
                     <br>
-                    <div class="signup-box">
+                    <!-- <div class="signup-box">
                         <p class="signac animated flipInX">Don't have an account? <a href="user-signup.php">Sign up</a></p>
-                    </div>
+                    </div> -->
                     
                     <div class="blue-line lg normal"></div>
                 </div>
