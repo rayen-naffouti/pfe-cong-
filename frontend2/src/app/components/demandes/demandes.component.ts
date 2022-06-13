@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonnelService } from 'src/app/service/personnel.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { FormControl,  Validator } from '@angular/forms';
+import { datelessthan } from 'src/app/validation/date.validation';
 
 @Component({
   selector: 'app-demandes',
@@ -35,9 +37,12 @@ export class DemandesComponent implements OnInit {
       fin :'',
       finx :'',
       adresse :'',
-      nbrjour :''
+      interim :''
+      // nbrjour :''
             
-    });
+    }
+    // ,{Validators:datelessthan('debut','fin')}
+    );
   }
 
   
@@ -61,8 +66,8 @@ export class DemandesComponent implements OnInit {
               fin :'',
               finx :'',
               adresse :'',
-              tel :this.personnel[0].PERS_TEL_98,
-              nbrjour :''
+              tel :this.personnel[0].PERS_TEL_98
+              // nbrjour :''
                     
             });
        })
@@ -76,6 +81,11 @@ export class DemandesComponent implements OnInit {
   this.http.post('http://localhost:8000/api/demande',this.form.getRawValue())
          .subscribe();
    this.router.navigate(['/my_leaves'])
+
+
+  // if (!this.form.valid){
+  //   alert('form invalid');
+  // }
   }
 
 }

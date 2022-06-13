@@ -26,7 +26,7 @@
 
                                         <div class="form-group">
                                             <label>Nature Congé : </label>
-                                            <select formControlName="natureconge" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft">
+                                            <select formControlName="natureconge" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft" required>
                                                 <option value="1">Annuel</option>
                                                 <option value="2">Exceptionnel</option>
                                                 <option value="3">Recuperation</option>
@@ -35,12 +35,13 @@
 
                                         <div class="form-group">
                                             <label>Start Date</label>
-                                            <input formControlName="debut" type="date" class="form-control date-picker" data-clearBtn="1" placeholder="dd/mm/yyyy">
+                                            <input formControlName="debut" type="date" class="form-control date-picker" data-clearBtn="1" placeholder="dd/mm/yyyy" required>
+                                            <!-- <p *ngIf="form.get('debut').errors?.datelessthan"> test </p> -->
                                         </div>
 
                                         <div class="form-group">
                                             <label>Start Date Period </label>
-                                            <select formControlName="debutX" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft">
+                                            <select formControlName="debutX" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft" required>
                                                 <option value="A">AM</option>
                                                 <option value="P">PM</option>
                                             </select>
@@ -48,12 +49,12 @@
 
                                         <div class="form-group">
                                             <label>End Date</label>
-                                            <input formControlName="fin" type="date" class="form-control date-picker" data-clearBtn="1" placeholder="dd/mm/yyyy">
+                                            <input formControlName="fin" type="date" class="form-control date-picker" data-clearBtn="1" placeholder="dd/mm/yyyy" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>End Date Period </label>
-                                            <select formControlName="finx" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft">
+                                            <select formControlName="finx" name="sport" id="sport" class="form-control validate[required]" data-prompt-position="topLeft" required>
                                                 <option value="A">AM</option>
                                                 <option value="P">PM</option>
                                             </select>
@@ -61,19 +62,20 @@
 
                                         <div class="form-group">
                                             <label>Adresse Durant le congé</label>
-                                            <input formControlName="adresse" type="text" class="form-control validate[required]" name="firstname" data-prompt-position="topLeft">
+                                            <input formControlName="adresse" type="text" class="form-control validate[required]" name="firstname" data-prompt-position="topLeft" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Intérim durant le congé</label>
-                                            <input type="text" class="form-control validate[required]" name="firstname" data-prompt-position="topLeft">
+                                            <input formControlName="interim" type="text" class="form-control validate[required]" name="firstname" data-prompt-position="topLeft" required>
                                         </div>
+                                        
 
                                     </div>
 
                                     <div class="form-actions fluid">
                                         <div class="col-md-12 text-right">
-                                            <button type="submit" class="btn btn-info">Submit</button>
+                                            <button [disabled]="form.invalid" type="submit" class="btn btn-info">Submit</button>
                                         </div>
                                     </div>
                                 </form>

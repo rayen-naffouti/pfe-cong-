@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Signataire extends Model
 {
-    protected $fillable = ['PERS_ID', 'signataire_ID', 'order'];
+    protected $fillable = ['PERS_ID', 'signataire_ID', 'order','tel','nom','prenom'];
     use HasFactory;
 }

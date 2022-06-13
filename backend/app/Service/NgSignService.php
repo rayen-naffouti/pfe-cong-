@@ -83,27 +83,64 @@ class NgSignService
     }
 
 
-    public function ConfigPDF(){
+    public function ConfigPDF($signers, $uuid,$pdfuid){
+        // return($signers);
         
 
         $token = env('NGSIGN_TOKEN');
 
-        $client = new \GuzzleHttp\Client(['verify' => false]);
-        $response = $client->request('POST', 'https://app.ng-sign.com.tn/server/protected/transaction/pdfs/', [
-            'headers' => [
-                'Authorization' => 'Bearer '.$token,
-                'Accept' => 'application/json',
-             ]
-            ], [
-                'json' => [
-                    '' => ''
+        $client = new \GuzzleHttp\Client(['verify' => false , 
+        'headers' => [
+            'Authorization' => 'Bearer '.$token,
+            'Content-Type' => 'application/json',
+         ]]);
+
+        //  $data = [
+        //     'body' => '['.json_encode([
+        //         'fileName' => 'Demande Conge',
+        //         'fileExtension' => 'pdf',
+        //         'fileBase64' => $pdf
+        //     ]).']'];
+
+        $data = [
+            'body' => json_encode([
+                "sigConf" =>
+                [
+                    [
+                    "signer"=> $signers,
+                    "sigType" => "CERTIFIED_TIMESTAMP",
+                    "docsConfigs" =>
+                        [
+                            [
+                            "page" => 1,
+                            "xAxis" => 81,
+                            "yAxis" => 44.28125,
+                            "documentName" => "NoteInterne",
+                            "documentExtension" => "pdf",
+                            "identifier" => $pdfuid
+                            ],
+                        ],
+                    "mode" => "FACE_TO_FACE",
+                    "otp" => "NONE"
                     ]
-            ]
+                ], 
+                    "message" => "This is a message included in the e-mail invitation that will be sent to all signatories."
+            ])];
+
+           
+
+
+            // return($data);
+        $response = $client->request('POST', 'https://app.ng-sign.com.tn/server/protected/transaction/'.$uuid.'/launch',  $data
         
         );
-        $data = json_decode($response->getBody());
+        $conf = json_decode($response->getBody()->getContents());
+
+                
+        // $response = $client->request('POST', 'https://app.ng-sign.com.tn/server/protected/transaction/'.$uuid.'/launch', $data);
+        // $conf = json_decode($response->getBody());
         // dd($response);
-        return($data); 
+        return($conf); 
        
     }
 }

@@ -25,8 +25,45 @@
                                         <div class="title">liste demande congé</div>
                                         <div class="count">| {{count}} Congé</div>
                                         <i class="zmdi zmdi-download"></i>
-                                    </header>
 
+                                        <a href="#" data-toggle="modal" data-target="#myModal">     
+                                            <button style="float:right; background-color: #363b5b;border: 0px;" type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                                Signers
+                                            </button></a> 
+                                    </header>
+                                                <div class="modal fade" id="myModal">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            
+                                                            <div class="model-body"> 
+                                                                  
+                                                                <article class="leaderboard">
+                                                                    <header>
+                                                                  
+                                                                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve" class="leaderboard__icon">
+                                                                        
+                                                                      </svg>
+                                                                  
+                                                                      <h1 class="leaderboard__title"><span class="leaderboard__title--top">Signataires</span><span class="leaderboard__title--bottom">List</span></h1>
+                                                                    </header>
+                                                                    
+                                                                    <main class="leaderboard__profiles">
+                                                                      <article class="leaderboard__profile" *ngFor="let item of list2">
+                                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Unknown_Member.jpg" class="leaderboard__picture">
+                                                                        <span class="leaderboard__name">{{item.signataire_ID}}</span>
+                                                                        
+                                                                      </article>
+                                                                      
+                                                                    </main>
+                                                                  </article>
+                                                                 
+                                                            </div>
+                                                            <div class="model-footer">
+                                                                <input class="btn btn-default" data-dismiss="modal" value="Close">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
 
                                 
                                 
@@ -66,7 +103,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p>$4,670</p>
+                                                <p>$0,0</p>
                                                 <p>Paid</p>
                                             </td>
 
@@ -141,9 +178,7 @@
                                                         </button>
                                                     </a>
                                                     
-                                                    <button *ngIf="cong.ngsign.object.status=='CREATED'" type="button" id="myFrame" class="btn btn-primary" style="margin-left: 5px;">
-                                                        <i class="di di-controls-forward"></i>
-                                                    </button>
+                                                    
                                             </td>
                                             
                                             
