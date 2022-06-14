@@ -1,11 +1,11 @@
 <div class="main-container">    <!-- START: Main Container -->
             
     <div class="page-header">
-        <h1>Form Wizard</h1>
+        <h1>User Register</h1>
         <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php">forms</a></li>
-            <li class="active">Wizard</li>
+            <li class="active">Register</li>
         </ol>
     </div>
     
@@ -25,7 +25,7 @@
                                         <ul class="step-indicator triangle gsi-style-1 gsi-transition">
                                             <li><a href="#tab1" data-toggle="tab">Account setup</a></li>
                                             <li><a href="#tab2" data-toggle="tab">Profile setup</a></li>
-                                            <li><a href="#tab3" data-toggle="tab">Billing setup</a></li>
+                                            <li><a href="#tab3" data-toggle="tab">Personnel setup</a></li>
                                             <li><a href="#tab4" data-toggle="tab">Agreement</a></li>
                                         </ul>
                                     </div>
@@ -33,7 +33,8 @@
                             </div>
                             <div class="callout callout-info">
                                 <h4>Examples</h4>
-                                <p>For better understanding, have a look at the off canvas slide in menu, off canvas push menu and off canvas reveal menu exapmles.</p>
+                                <p>For better understanding, Follow this steps to add new employee, you can add a profile picture and more detailes</p>
+                                <p>You have to accepet the terms to complete registration</p>
                             </div>
                             <form [formGroup]="form" (submit)="submit()">
                             
@@ -84,9 +85,7 @@
                                     <h3>Provide your Profile details</h3>
                                     
                                         
-                                        <div class="form-group col-sm-12">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        </div>
+
                                         
                                       <div class="col-md-12">
                               <div class="panel panel-info">
@@ -151,8 +150,8 @@
                                         <div class="form-group">
                                             <label >Agent Nature</label><br>
                                                     <select formControlName="PERS_NATURAGENT_93" class="form-control custom-Select">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
+                                                        <option value="1">Ingenieur</option>
+                                                        <option value="2">Technicien</option>
                                                     </select>
                                         </div>
                                 
@@ -165,8 +164,18 @@
                                    
                                         
                                         <div class="form-group col-sm-12">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                            <p>Employment
+                                                The Employee agrees that he or she will faithfully and to the best of their ability to carry out the duties and responsibilities communicated to them by the Employer. The Employee shall comply with all company policies, rules and procedures at all times.
+                                                
+                                                Position
+                                                As a [job title], it is the duty of the Employee to perform all essential job functions and duties. From time to time, the Employer may also add other duties within the reasonable scope of the Employee’s work.
+                                                
+                                                Compensation
+                                                As compensation for the services provided, the Employee shall be paid a wage of $_______ [per hour/per annum] and will be subject to a(n) [quarterly/annual] performance review. All payments shall be subject to mandatory employment deductions (State & Federal Taxes, Social Security, Medicare).
+                                                
+                                                Benefits
+                                                The Employee has the right to participate in any benefits plans offered by the Employer. The employer currently offers [list benefits, if any]. Access to these benefits will only be possible after the probationary period has passed.</p>
+                                            
                                         </div>
                                         
                                         <div class="form-group col-sm-12">

@@ -82,14 +82,14 @@ class DemandeController extends Controller
         where('PERS_ID', $PERS_ID)
         ->get();
         foreach($signers as $sign){
-            $json=[
+            $json[]=[
                 'firstName'=>$sign->prenom,
                 "lastName"=>$sign->nom,
                 "email"=>$sign->signataire_ID,
                 "phoneNumber"=>$sign->tel
             ];
         }
-        // return($json);
+        // return($json[1]);
 
 
         $pdf = PDF::loadView('pdf',[
@@ -121,7 +121,7 @@ class DemandeController extends Controller
        
         // $upload = json_decode('{
         //     "object": {
-        //         "uuid": "ddbd233b-cd6f-47b3-a888-aee5144bf553",
+        //         "uuid": "223ef6bc-0f08-4e1b-bfde-9bebd8d5d6d1",
         //         "puuid": null,
         //         "creationDate": "2022-06-10T17:25:07.141+00:00",
         //         "status": "CREATED",
@@ -170,7 +170,7 @@ class DemandeController extends Controller
         //                 "size": 6685,
         //                 "name": "Demande Conge",
         //                 "extension": "pdf",
-        //                 "identifier": "88c174c5-80e5-40eb-894b-a88b15162819",
+        //                 "identifier": "17b43823-450e-4527-903e-b85b9385b362",
         //                 "pdfA": false,
         //                 "numberPages": 0
         //             }

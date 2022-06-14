@@ -107,22 +107,39 @@ class NgSignService
                 "sigConf" =>
                 [
                     [
-                    "signer"=> $signers,
+                    "signer"=> $signers[0],
                     "sigType" => "CERTIFIED_TIMESTAMP",
                     "docsConfigs" =>
                         [
                             [
                             "page" => 1,
-                            "xAxis" => 81,
-                            "yAxis" => 44.28125,
+                            "xAxis" => 336,
+                            "yAxis" => 487,
                             "documentName" => "NoteInterne",
                             "documentExtension" => "pdf",
                             "identifier" => $pdfuid
                             ],
                         ],
-                    "mode" => "FACE_TO_FACE",
-                    "otp" => "NONE"
-                    ]
+                    "mode" => "BY_MAIL",
+                    "otp" => "OTP"
+                    ],
+                    [
+                        "signer"=> $signers[1],
+                        "sigType" => "CERTIFIED_TIMESTAMP",
+                        "docsConfigs" =>
+                            [
+                                [
+                                "page" => 1,
+                                "xAxis" => 58,
+                                "yAxis" => 714,
+                                "documentName" => "NoteInterne",
+                                "documentExtension" => "pdf",
+                                "identifier" => $pdfuid
+                                ],
+                            ],
+                        "mode" => "BY_MAIL",
+                        "otp" => "OTP"
+                        ]
                 ], 
                     "message" => "This is a message included in the e-mail invitation that will be sent to all signatories."
             ])];

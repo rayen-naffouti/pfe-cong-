@@ -2,11 +2,11 @@
     <!-- START: Main Container -->
 
     <div class="page-header">
-        <h1>Data Tables <small>Bootstrap Data Table</small></h1>
+        <h1>Personnel List <small>Personnel's absences List</small></h1>
         <ol class="breadcrumb">
             <li><a href="">Home</a></li>
-            <li><a href="">Tables</a></li>
-            <li class="active">Data Table</li>
+            <li><a href="">List</a></li>
+            <li class="active">Personnel List</li>
         </ol>
     </div>
 
@@ -84,21 +84,21 @@ data-page-list="[10,20,30,0,50,All]"
                         <div class="projects mb-4">
                             <div class="projects-inner">
                                 <header class="projects-header">
-                                    <div class="title">liste demande congé</div>
-                                    <div class="count">| 30 Congé</div>
+                                    <div class="title">Personnels List</div>
+                                    <div class="count">| 15 Personnels</div>
                                     <i class="zmdi zmdi-download"></i>
                                 </header>
 
                                 <table class="projects-table">
                                     <thead>
                                         <tr>
-                                            <th>Conge</th>
-                                            <th>Debut</th>
-                                            <th>End</th>
-                                            <th>Owner</th>
+                                            <th>Matricule</th>
+                                            <th>Personnel</th>
+                                            <th>Email</th>
+                                            <th>Birth</th>
                                             <th>Solde</th>
-                                            <th>Status</th>
-                                            <th class="text-right">Actions</th>
+                                            <th>User</th>
+                                            <th>Absences</th>
                                         </tr>
                                     </thead>
                                     <tr *ngFor="let pers of personnels ; let i = index; ">
@@ -126,7 +126,7 @@ data-page-list="[10,20,30,0,50,All]"
                                             <p>Paid</p>
                                         </td>
                                         <td class="status">
-                                            <span class="status-text status-orange">Progress</span>
+                                            <span class="status-text status-orange">{{ pers.name }}</span>
                                         </td>
                                         <td>
                                             <!-- Button trigger modal -->
